@@ -20,8 +20,8 @@ Meu objetivo é criar soluções eficientes e compartilhar conhecimento com a co
 
 ## 📊 Estatísticas
 
-![GitHub Stats](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=AugustoCastilhoDev&show_icons=true&theme=radical)
-![Top Languages](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=AugustoCastilhoDev&layout=compact&theme=radical)
+![GitHub Stats](https://github-readme-stats-one-bice.vercel.app/api?username=AugustoCastilhoDev&show_icons=true&theme=radical)
+![Top Languages](https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=AugustoCastilhoDev&layout=compact&theme=radical)
 
 ---
 
