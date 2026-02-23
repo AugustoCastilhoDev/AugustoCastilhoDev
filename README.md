@@ -1,43 +1,34 @@
-# 👋 Olá, eu sou Augusto Castilho
+# Augusto Corrêa Castilho
 
-Sou desenvolvedor apaixonado por tecnologia, inovação e aprendizado contínuo.  
-Tenho experiência em **JavaScript, HTML, CSS, PHP, Lua** e também em **Windows e sistemas distribuídos**.  
-Meu objetivo é criar soluções eficientes e compartilhar conhecimento com a comunidade.
+👋 Hi! I'm a Junior Software Developer in career transition into Technology, with a strong background in business processes, data validation, and systems.
 
----
+## 👨‍💻 About Me
+- Over 10 years of experience in administrative, financial, and logistics roles  
+- MBA in Software Engineering (completed)  
+- Bachelor’s degree in Systems Analysis and Development (in progress)  
+- Strong interest in building practical and efficient digital solutions  
+- Open to remote-first and global opportunities  
 
-## 🛠️ Tecnologias e Ferramentas
+## 🛠️ Technical Skills
+- HTML5, CSS3, JavaScript  
+- Programming Logic  
+- Git & GitHub  
+- Data organization and validation  
+- ERP systems and process optimization  
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+## ⭐ Featured Projects
 
----
+- 🔗 **[Peg Solitaire Game – Jogo Resta Um](https://github.com/AugustoCastilhoDev/Jogo_RestaUm)**  
+  Logic-based board game focused on problem-solving, conditional logic, and game rules implementation.
 
-## 📊 Estatísticas
+- 📅 **[Calendar 2026 (Lua)](https://github.com/AugustoCastilhoDev/calendario-2026)**  
+  Calendar application developed in Lua, applying control structures and date logic.
 
-![GitHub Stats](https://github-readme-stats-one-bice.vercel.app/api?username=AugustoCastilhoDev&show_icons=true&theme=radical)
-![Top Languages](https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=AugustoCastilhoDev&layout=compact&theme=radical)
+- ❤️ **[Coração Vascaíno – Imersão Dev Alura](https://github.com/AugustoCastilhoDev/imersao_dev_alura)**  
+  Creative front-end project developed during Alura’s Imersão Dev, using HTML, CSS, and JavaScript.
 
----
+👉 Explore more projects below ⬇️
 
-## 🌟 Projetos em Destaque
-
-- [🔗 Projeto 1](https://github.com/AugustoCastilhoDev/Jogo_RestaUm) – Jogo Resta Um (Peg Solitaire)
-- [🔗 Projeto 2](https://github.com/AugustoCastilhoDev/calendario-2026) – Calendário 2026 - em Lua
-- [🔗 Projeto 3](https://github.com/AugustoCastilhoDev/imersao_dev_alura) – Coração Vascaíno - Projeto Desenvolvido na ImersãoDev da Alura
-
----
-
-## 🌐 Onde me encontrar
-
-- [GitHub](https://github.com/AugustoCastilhoDev/)
-- [LinkedIn](https://www.linkedin.com/in/augusto-castilho87/)
-
----
-
-✨ Sempre aberto a colaborações e novos desafios!
+## 📫 Contact
+- LinkedIn: https://linkedin.com/in/augusto-castilho87  
+- Email: ac.castilho87@gmail.com
