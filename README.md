@@ -1,34 +1,86 @@
-# Augusto Corrêa Castilho
+<h1 align="center">Olá, eu sou o Augusto Castilho 👋</h1>
+<h3 align="center">Desenvolvedor Full-Stack & Fundador SaaS · Full-Stack Developer & SaaS Founder</h3>
 
-👋 Hi! I'm a Junior Software Developer in career transition into Technology, with a strong background in business processes, data validation, and systems.
+<p align="center">
+  <a href="https://linkedin.com/in/augusto-castilho87" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-augusto--castilho87-0077B5?style=flat-square&logo=linkedin" alt="LinkedIn">
+  </a>
+  <a href="mailto:ac.castilho87@gmail.com">
+    <img src="https://img.shields.io/badge/Email-ac.castilho87@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
+  </a>
+  <img src="https://img.shields.io/badge/Localiza%C3%A7%C3%A3o-Ponte%20Nova%2C%20MG-green?style=flat-square&logo=googlemaps&logoColor=white" alt="Localização">
+</p>
 
-## 👨‍💻 About Me
-- Over 10 years of experience in administrative, financial, and logistics roles  
-- MBA in Software Engineering (completed)  
-- Bachelor’s degree in Systems Analysis and Development (in progress)  
-- Strong interest in building practical and efficient digital solutions  
-- Open to remote-first and global opportunities  
+---
 
-## 🛠️ Technical Skills
-- HTML5, CSS3, JavaScript  
-- Programming Logic  
-- Git & GitHub  
-- Data organization and validation  
-- ERP systems and process optimization  
+## 👨‍💻 Sobre Mim · About Me
 
-## ⭐ Featured Projects
+🇧🇷 **Português**
 
-- 🔗 **[Peg Solitaire Game – Jogo Resta Um](https://github.com/AugustoCastilhoDev/Jogo_RestaUm)**  
-  Logic-based board game focused on problem-solving, conditional logic, and game rules implementation.
+Sou desenvolvedor Full-Stack e empreendedor digital, focado na construção de soluções SaaS para o mercado brasileiro. Fundei a linha de produtos **Invexa**, um ecossistema de plataformas de gestão empresarial desenvolvidas em Laravel. Tenho experiência sólida em arquitetura de sistemas, integrações de APIs, automação de processos e deploy em produção.
 
-- 📅 **[Calendar 2026 (Lua)](https://github.com/AugustoCastilhoDev/calendario-2026)**  
-  Calendar application developed in Lua, applying control structures and date logic.
+🇺🇸 **English**
 
-- ❤️ **[Coração Vascaíno – Imersão Dev Alura](https://github.com/AugustoCastilhoDev/imersao_dev_alura)**  
-  Creative front-end project developed during Alura’s Imersão Dev, using HTML, CSS, and JavaScript.
+I'm a Full-Stack Developer and digital entrepreneur focused on building SaaS solutions for the Brazilian market. I founded the **Invexa** product line — an ecosystem of business management platforms built with Laravel. I have solid experience in system architecture, API integrations, process automation, and production deployments.
 
-👉 Explore more projects below ⬇️
+---
 
-## 📫 Contact
-- LinkedIn: https://linkedin.com/in/augusto-castilho87  
-- Email: ac.castilho87@gmail.com
+## 🚀 Produtos · Products
+
+| Produto | Descrição | Status |
+|---|---|---|
+| 🟢 [**Invexa**](https://github.com/AugustoCastilhoDev) | ERP SaaS para gestão de estoque, vendas e fiscal (NF-e) | Em produção |
+| 🔵 [**Invexa Frete**](https://github.com/AugustoCastilhoDev/invexa-frete) | Plataforma de gestão de frotas, motoristas e viagens | Em desenvolvimento |
+
+---
+
+## 🛠️ Tecnologias · Tech Stack
+
+**Backend**
+
+![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=flat-square&logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=flat-square&logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql&logoColor=white)
+
+**Frontend**
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Blade](https://img.shields.io/badge/Blade-FF2D20?style=flat-square&logo=laravel&logoColor=white)
+
+**DevOps & Infraestrutura**
+
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
+
+**Integrações & Serviços**
+
+![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white)
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img height="160" src="https://github-readme-stats.vercel.app/api?username=AugustoCastilhoDev&show_icons=true&theme=tokyonight&locale=pt-br&hide_border=true" alt="GitHub Stats">
+  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AugustoCastilhoDev&layout=compact&theme=tokyonight&locale=pt-br&hide_border=true" alt="Top Languages">
+</p>
+
+---
+
+## 📫 Contato · Contact
+
+- 💼 LinkedIn: [linkedin.com/in/augusto-castilho87](https://linkedin.com/in/augusto-castilho87)
+- 📧 Email: [ac.castilho87@gmail.com](mailto:ac.castilho87@gmail.com)
+
+---
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=AugustoCastilhoDev&color=blueviolet&style=flat-square" alt="Profile views">
+</p>
