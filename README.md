@@ -68,9 +68,9 @@ I'm a Full-Stack Developer and digital entrepreneur focused on building SaaS sol
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=AugustoCastilhoDev&show_icons=true&theme=tokyonight&locale=pt-br&hide_border=true&cache_seconds=1800" alt="GitHub Stats" />
-  &nbsp;
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AugustoCastilhoDev&layout=compact&theme=tokyonight&locale=pt-br&hide_border=true&cache_seconds=1800" alt="Top Languages" />
+  <img src="https://img.shields.io/badge/Reposit%C3%B3rios%20P%C3%BAblicos-28-181717?style=for-the-badge&logo=github&logoColor=white" alt="Repositórios">
+  <img src="https://img.shields.io/badge/Linguagem%20Principal-PHP%20%2F%20Laravel-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="Linguagem Principal">
+  <img src="https://img.shields.io/badge/Contribui%C3%A7%C3%B5es-645%2B-2ea44f?style=for-the-badge&logo=git&logoColor=white" alt="Contribuições">
 </p>
 
 <p align="center">
