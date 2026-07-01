@@ -68,8 +68,13 @@ I'm a Full-Stack Developer and digital entrepreneur focused on building SaaS sol
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=AugustoCastilhoDev&show_icons=true&theme=tokyonight&locale=pt-br&hide_border=true" alt="GitHub Stats">
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AugustoCastilhoDev&layout=compact&theme=tokyonight&locale=pt-br&hide_border=true" alt="Top Languages">
+  <img height="160" src="https://github-readme-stats.vercel.app/api?username=AugustoCastilhoDev&show_icons=true&theme=tokyonight&locale=pt-br&hide_border=true&cache_seconds=1800" alt="GitHub Stats" />
+  &nbsp;
+  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AugustoCastilhoDev&layout=compact&theme=tokyonight&locale=pt-br&hide_border=true&cache_seconds=1800" alt="Top Languages" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AugustoCastilhoDev&theme=tokyonight&hide_border=true&locale=pt_BR" alt="GitHub Streak" />
 </p>
 
 ---
