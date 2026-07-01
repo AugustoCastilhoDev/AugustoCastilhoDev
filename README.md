@@ -8,7 +8,7 @@
   <a href="mailto:ac.castilho87@gmail.com">
     <img src="https://img.shields.io/badge/Email-ac.castilho87@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
   </a>
-  <img src="https://img.shields.io/badge/Localiza%C3%A7%C3%A3o-Ponte%20Nova%2C%20MG-green?style=flat-square&logo=googlemaps&logoColor=white" alt="Localização">
+  <img src="https://img.shields.io/badge/Localiza%C3%A7%C3%A3o-Leopoldina%2C%20MG-green?style=flat-square&logo=googlemaps&logoColor=white" alt="Localização">
 </p>
 
 ---
