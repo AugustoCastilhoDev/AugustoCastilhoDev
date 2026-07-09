@@ -17,11 +17,31 @@
 
 🇧🇷 **Português**
 
-Sou desenvolvedor Full-Stack e empreendedor digital, focado na construção de soluções SaaS para o mercado brasileiro. Fundei a linha de produtos **Invexa**, um ecossistema de plataformas de gestão empresarial desenvolvidas em Laravel. Tenho experiência sólida em arquitetura de sistemas, integrações de APIs, automação de processos e deploy em produção.
+Desenvolvo software porque entendo o problema antes do código. Foram mais de 10 anos em faturamento, rotinas financeiras e operação de sistemas ERP em empresas industriais — tempo suficiente para aprender, na prática, onde os dados quebram, onde os relatórios falham e onde os sistemas deixam de atender quem realmente os usa.
+
+Foi esse olhar que me levou a programar, e programar me levou a construir o **Invexa**.
+
+Hoje mantenho dois produtos próprios em produção:
+- **Invexa** — ERP SaaS multi-tenant para pequenas e médias empresas brasileiras, com gestão de vendas, estoque e financeiro, pagamentos Pix (Asaas) e assinaturas (Stripe), 2FA, conformidade com LGPD, audit log e monitoramento em produção.
+- **Invexa Frete** — sistema de gestão de viagens para transportadoras, com controle financeiro, acerto de motoristas, documentos fiscais e relatórios em PDF.
+
+Bacharel em Administração e MBA em Engenharia de Software — uma combinação pouco comum: visão de negócio com execução técnica de ponta a ponta.
+
+Aberto a oportunidades como Desenvolvedor Back-end ou Full-Stack — remoto ou híbrido.
 
 🇺🇸 **English**
 
-I'm a Full-Stack Developer and digital entrepreneur focused on building SaaS solutions for the Brazilian market. I founded the **Invexa** product line — an ecosystem of business management platforms built with Laravel. I have solid experience in system architecture, API integrations, process automation, and production deployments.
+I build software because I understand the problem before writing the code. I spent 10+ years in billing, financial operations and ERP systems at industrial companies — long enough to learn firsthand where data breaks, where reports fail, and where systems stop serving the people who actually use them.
+
+That perspective is what led me to programming — and programming led me to build **Invexa**.
+
+I currently maintain two products in production:
+- **Invexa** — a multi-tenant SaaS ERP for Brazilian SMBs, covering sales, inventory and finance, Pix payments (Asaas) and subscriptions (Stripe), 2FA, LGPD compliance, audit logging and production monitoring.
+- **Invexa Frete** — a trip management system for trucking companies, covering financial control, driver settlements, tax documents and PDF reporting.
+
+Bachelor's in Business Administration and an MBA in Software Engineering — a rare combination of business vision and hands-on technical execution.
+
+Open to Back-end or Full-Stack Developer opportunities — remote or hybrid.
 
 ---
 
@@ -30,7 +50,7 @@ I'm a Full-Stack Developer and digital entrepreneur focused on building SaaS sol
 | Produto | Descrição | Status |
 |---|---|---|
 | 🟢 [**Invexa**](https://github.com/AugustoCastilhoDev) | ERP SaaS para gestão de estoque, vendas e fiscal (NF-e) | Em produção |
-| 🔵 [**Invexa Frete**](https://github.com/AugustoCastilhoDev/invexa-frete) | Plataforma de gestão de frotas, motoristas e viagens | Em desenvolvimento |
+| 🟢 [**Invexa Frete**](https://github.com/AugustoCastilhoDev/invexa-frete) | Plataforma de gestão de frotas, motoristas e viagens | Em produção |
 
 ---
 
@@ -41,12 +61,14 @@ I'm a Full-Stack Developer and digital entrepreneur focused on building SaaS sol
 ![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=flat-square&logo=php&logoColor=white)
 ![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=flat-square&logo=laravel&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
 
 **Frontend**
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![Blade](https://img.shields.io/badge/Blade-FF2D20?style=flat-square&logo=laravel&logoColor=white)
@@ -61,6 +83,7 @@ I'm a Full-Stack Developer and digital entrepreneur focused on building SaaS sol
 **Integrações & Serviços**
 
 ![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white)
+![Asaas](https://img.shields.io/badge/Asaas-Pix-00C853?style=flat-square&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white)
 
 ---
