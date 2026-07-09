@@ -49,7 +49,7 @@ Open to Back-end or Full-Stack Developer opportunities — remote or hybrid.
 
 | Produto | Descrição | Status |
 |---|---|---|
-| 🟢 [**Invexa**](https://github.com/AugustoCastilhoDev) | ERP SaaS para gestão de estoque, vendas e fiscal (NF-e) | Em produção |
+| 🟢 [**Invexa**](https://github.com/AugustoCastilhoDev/invexa) | ERP SaaS para gestão de estoque, vendas e fiscal (NF-e) | Em produção |
 | 🟢 [**Invexa Frete**](https://github.com/AugustoCastilhoDev/invexa-frete) | Plataforma de gestão de frotas, motoristas e viagens | Em produção |
 
 ---
