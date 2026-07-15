@@ -46,6 +46,20 @@ body {
 ::selection { background: rgba(0,230,140,.25); }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
 
+/* fundo global: aurora tecnológica em movimento lento */
+.bg-aurora {
+  position: fixed; inset: -25%; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(36% 28% at 78% 10%, rgba(0,230,140,.075), transparent 70%),
+    radial-gradient(42% 34% at 10% 78%, rgba(58,160,255,.09), transparent 70%),
+    radial-gradient(30% 26% at 52% 50%, rgba(58,160,255,.05), transparent 70%);
+  filter: blur(46px);
+  animation: aurora 28s ease-in-out infinite alternate;
+}
+@keyframes aurora {
+  from { transform: translate3d(-2.5%, -1.5%, 0) scale(1) rotate(-1deg); }
+  to   { transform: translate3d(2.5%, 2%, 0) scale(1.08) rotate(1.5deg); }
+}
 main, nav, footer { position: relative; z-index: 1; }
 
 /* ── NAV ── */
@@ -73,8 +87,13 @@ nav.scrolled {
 .nav-logo-text { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--text); letter-spacing: -.01em; line-height: 1; }
 .nav-logo-text span { display: block; font-family: var(--font-mono); font-size: .55rem; font-weight: 400; color: var(--green); letter-spacing: .22em; text-transform: uppercase; margin-top: 3px; }
 
-.nav-links { display: flex; gap: 1.9rem; list-style: none; }
-.nav-links a { color: var(--muted); text-decoration: none; font-size: .85rem; transition: color .2s; }
+.nav-links { display: flex; gap: 2.7rem; list-style: none; }
+.nav-links a {
+  font-family: var(--font-display); font-weight: 500;
+  color: var(--muted); text-decoration: none; font-size: .94rem;
+  text-transform: uppercase; letter-spacing: .09em;
+  transition: color .2s;
+}
 .nav-links a:hover { color: var(--text); }
 .nav-cta {
   font-family: var(--font-display);
@@ -400,7 +419,7 @@ footer {
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .float-wa, .pulse-dot::after, .cursor { animation: none; }
+  .float-wa, .pulse-dot::after, .cursor, .bg-aurora { animation: none; }
 }
 
 /* ── RESPONSIVE ── */
@@ -428,6 +447,8 @@ footer {
 </style>
 </head>
 <body>
+
+<div class="bg-aurora" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav id="nav">
