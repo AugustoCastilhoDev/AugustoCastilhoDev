@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Castilho Soluções Digitais — Sistemas SaaS, Sites e Automações | Augusto Castilho</title>
+<meta name="description" content="Augusto Castilho: desenvolvedor full-stack e fundador de 2 produtos SaaS em produção — Invexa (ERP) e Invexa Frete. Landing pages, automações e sistemas sob medida com quem entende de negócio.">
+<meta property="og:title" content="Castilho Soluções Digitais — Augusto Castilho">
+<meta property="og:description" content="2 produtos SaaS em produção. Sites, automações e sistemas de gestão para pequenos negócios.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:        #04070C;
+  --bg-2:      #070D16;
+  --bg-3:      #0A1220;
+  --line:      rgba(148,190,233,.10);
+  --line-hi:   rgba(148,190,233,.22);
+  --green:     #00E68C;
+  --green-dim: #00B871;
+  --green-glow:rgba(0,230,140,.14);
+  --blue:      #3AA0FF;
+  --blue-dim:  #1E6FD9;
+  --blue-glow: rgba(58,160,255,.13);
+  --text:      #E9F1F9;
+  --muted:     #8CA3B8;
+  --muted-2:   #5E7488;
+  --glass:     rgba(255,255,255,.032);
+  --glass-hi:  rgba(255,255,255,.055);
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+::selection { background: rgba(0,230,140,.25); }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+
+/* fundo global: grade técnica sutil */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148,190,233,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,190,233,.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
+}
+main, nav, footer { position: relative; z-index: 1; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 6%;
+  border-bottom: 1px solid transparent;
+  transition: background .35s, border-color .35s, backdrop-filter .35s;
+}
+nav.scrolled {
+  background: rgba(4,7,12,.72);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border-bottom-color: var(--line);
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.nav-mark {
+  width: 34px; height: 34px; border-radius: 9px; position: relative;
+  background: linear-gradient(135deg, rgba(0,230,140,.16), rgba(58,160,255,.16));
+  border: 1px solid var(--line-hi);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: .8rem; font-weight: 600; color: var(--green);
+}
+.nav-logo-text { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--text); letter-spacing: -.01em; line-height: 1; }
+.nav-logo-text span { display: block; font-family: var(--font-mono); font-size: .55rem; font-weight: 400; color: var(--green); letter-spacing: .22em; text-transform: uppercase; margin-top: 3px; }
+
+.nav-links { display: flex; gap: 1.9rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: .85rem; transition: color .2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--font-display);
+  background: var(--green); color: #03130C; padding: .58rem 1.3rem;
+  border-radius: 8px; text-decoration: none; font-size: .85rem; font-weight: 600;
+  transition: box-shadow .25s, transform .15s;
+}
+.nav-cta:hover { box-shadow: 0 0 24px rgba(0,230,140,.45); transform: translateY(-1px); }
+
+/* ── HERO ── */
+#hero {
+  position: relative; min-height: 100vh; display: flex; align-items: center;
+  padding: 8rem 6% 5rem; overflow: hidden;
+}
+.orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(10px); }
+.orb-1 { width: 640px; height: 640px; background: radial-gradient(circle, var(--green-glow) 0%, transparent 68%); top: -200px; right: -140px; }
+.orb-2 { width: 520px; height: 520px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 68%); bottom: -220px; left: -120px; }
+.hero-beam {
+  position: absolute; top: 0; left: 50%; width: 1px; height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(0,230,140,.25) 40%, transparent 80%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.08fr .92fr; gap: 4rem; align-items: center; max-width: 1240px; margin: 0 auto; width: 100%; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--glass); border: 1px solid rgba(0,230,140,.3);
+  backdrop-filter: blur(8px);
+  color: var(--green); padding: .48rem 1.05rem; border-radius: 100px;
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.75rem;
+}
+.pulse-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; position: relative; }
+.pulse-dot::after {
+  content: ''; position: absolute; inset: -4px; border-radius: 50%;
+  border: 1px solid var(--green); opacity: .6; animation: ping 2.2s cubic-bezier(0,0,.2,1) infinite;
+}
+@keyframes ping { 0% { transform: scale(.5); opacity: .7; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 4.6vw, 3.7rem);
+  font-weight: 600; line-height: 1.1; letter-spacing: -.025em; color: var(--text);
+}
+.grad-text {
+  background: linear-gradient(92deg, var(--green) 10%, var(--blue) 90%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-rule {
+  width: 88px; height: 2px; margin: 1.75rem 0 1.5rem;
+  background: linear-gradient(90deg, var(--green), var(--blue), transparent);
+}
+.hero-sub { font-size: 1.02rem; color: var(--muted); line-height: 1.8; max-width: 500px; margin-bottom: 2.25rem; }
+.hero-sub strong { color: var(--text); font-weight: 500; }
+
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.75rem; }
+.btn-primary {
+  font-family: var(--font-display);
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--green); color: #03130C; padding: .9rem 1.7rem;
+  border-radius: 10px; text-decoration: none; font-size: .95rem; font-weight: 600;
+  transition: box-shadow .25s, transform .2s;
+}
+.btn-primary:hover { box-shadow: 0 0 34px rgba(0,230,140,.5); transform: translateY(-2px); }
+.btn-ghost {
+  font-family: var(--font-display);
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--line-hi); color: var(--text);
+  background: var(--glass); backdrop-filter: blur(8px);
+  padding: .9rem 1.7rem; border-radius: 10px; text-decoration: none; font-size: .95rem; font-weight: 500;
+  transition: border-color .2s, background .2s, box-shadow .25s;
+}
+.btn-ghost:hover { border-color: rgba(58,160,255,.55); background: var(--glass-hi); box-shadow: 0 0 22px rgba(58,160,255,.18); }
+
+/* prova de autoridade no hero */
+.hero-proof {
+  display: grid; grid-template-columns: repeat(3, auto); gap: 2.2rem; width: fit-content;
+  border-top: 1px solid var(--line); padding-top: 1.6rem;
+}
+.proof-item strong {
+  display: block; font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; color: var(--text);
+}
+.proof-item strong em { font-style: normal; color: var(--green); }
+.proof-item span { font-size: .74rem; color: var(--muted-2); letter-spacing: .04em; line-height: 1.45; display: block; margin-top: 2px; }
+
+/* terminal do hero */
+.hero-visual { position: relative; }
+.hero-visual::before {
+  content: ''; position: absolute; inset: -1px;
+  background: linear-gradient(135deg, rgba(0,230,140,.4), transparent 30%, transparent 70%, rgba(58,160,255,.4));
+  border-radius: 17px; z-index: 0;
+}
+.terminal {
+  position: relative; z-index: 1;
+  background: rgba(7,13,22,.92); backdrop-filter: blur(14px);
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,.6);
+}
+.term-bar {
+  display: flex; align-items: center; gap: 7px; padding: .8rem 1.1rem;
+  background: rgba(255,255,255,.025); border-bottom: 1px solid var(--line);
+}
+.term-dot { width: 10px; height: 10px; border-radius: 50%; }
+.term-title { margin-left: 8px; font-family: var(--font-mono); font-size: .66rem; color: var(--muted-2); }
+.term-body { padding: 1.35rem 1.4rem; font-family: var(--font-mono); font-size: .78rem; line-height: 2.05; }
+.tl { display: block; white-space: nowrap; overflow: hidden; }
+.tl .p { color: var(--green); }
+.tl .c { color: var(--muted-2); }
+.tl .k { color: var(--blue); }
+.tl .s { color: #7BD8A8; }
+.tl .ok { color: var(--green); }
+.cursor { display: inline-block; width: 8px; height: 15px; background: var(--green); vertical-align: text-bottom; animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ── ESTRUTURA GERAL ── */
+section { padding: 6.5rem 6%; position: relative; }
+.inner { max-width: 1160px; margin: 0 auto; }
+.s-tag {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 1.1rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.s-tag::before { content: ''; width: 30px; height: 1px; background: linear-gradient(90deg, var(--green), transparent); }
+h2 {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 3.1vw, 2.7rem);
+  font-weight: 600; line-height: 1.16; letter-spacing: -.02em; margin-bottom: .9rem; color: var(--text);
+}
+.s-sub { font-size: .98rem; color: var(--muted); line-height: 1.8; max-width: 580px; margin-bottom: 3.25rem; }
+.divider {
+  height: 1px; max-width: 1160px; margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--line-hi), transparent);
+}
+
+/* glass card base */
+.glass-card {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  transition: transform .3s, border-color .3s, box-shadow .3s, background .3s;
+}
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: var(--glass-hi);
+  border-color: var(--line-hi);
+}
+
+/* ── PRODUTOS ── */
+#produtos { background: linear-gradient(180deg, transparent, rgba(10,18,32,.55), transparent); }
+.prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+.prod-card { padding: 2.4rem 2.2rem; overflow: hidden; }
+.prod-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+}
+.prod-card.invexa::before { background: linear-gradient(90deg, var(--green), transparent 70%); }
+.prod-card.frete::before  { background: linear-gradient(90deg, var(--blue), transparent 70%); }
+.prod-card.invexa:hover { box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 40px rgba(0,230,140,.09); }
+.prod-card.frete:hover  { box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 40px rgba(58,160,255,.09); }
+
+.prod-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.35rem; flex-wrap: wrap; }
+.prod-name { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; letter-spacing: -.01em; }
+.prod-name span { font-family: var(--font-mono); font-size: .68rem; color: var(--muted-2); display: block; margin-top: 4px; letter-spacing: .08em; text-transform: uppercase; font-weight: 400; }
+.badge-live {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--green); background: rgba(0,230,140,.08); border: 1px solid rgba(0,230,140,.32);
+  padding: .35rem .8rem; border-radius: 100px;
+}
+.prod-desc { font-size: .9rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem; }
+.prod-feats { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem .9rem; margin-bottom: 1.75rem; }
+.feat { display: flex; align-items: flex-start; gap: 8px; font-size: .8rem; color: var(--muted); line-height: 1.5; }
+.feat svg { flex-shrink: 0; margin-top: 2px; }
+.prod-stack { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.75rem; }
+.chip {
+  font-family: var(--font-mono); font-size: .64rem; color: var(--muted);
+  background: rgba(255,255,255,.03); border: 1px solid var(--line);
+  padding: .28rem .65rem; border-radius: 6px; letter-spacing: .03em;
+}
+.prod-links { display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
+.prod-link {
+  font-family: var(--font-display); font-size: .85rem; font-weight: 500;
+  color: var(--green); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 7px; transition: gap .2s;
+}
+.prod-link.blue { color: var(--blue); }
+.prod-link:hover { gap: 11px; }
+
+/* ── SERVIÇOS ── */
+.serv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.serv-card { padding: 2.1rem 1.9rem; display: flex; flex-direction: column; }
+.serv-num { font-family: var(--font-mono); font-size: .66rem; color: var(--muted-2); letter-spacing: .12em; margin-bottom: 1.4rem; }
+.serv-num b { color: var(--green); font-weight: 500; }
+.serv-ico {
+  width: 48px; height: 48px; border-radius: 12px; margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(0,230,140,.1), rgba(58,160,255,.1));
+  border: 1px solid var(--line-hi);
+}
+.serv-card h3 { font-family: var(--font-display); font-size: 1.22rem; font-weight: 600; margin-bottom: .7rem; }
+.serv-card p { font-size: .86rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.6rem; flex: 1; }
+.serv-link {
+  font-family: var(--font-display); font-size: .82rem; font-weight: 500; color: var(--green);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 7px; transition: gap .2s;
+}
+.serv-link:hover { gap: 11px; }
+
+/* ── STACK ── */
+#stack { background: linear-gradient(180deg, transparent, rgba(10,18,32,.55), transparent); }
+.stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.stack-col { padding: 1.7rem 1.5rem; }
+.stack-col h3 {
+  font-family: var(--font-mono); font-size: .68rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--blue);
+  margin-bottom: 1.2rem; display: flex; align-items: center; gap: 9px;
+}
+.stack-col h3::before { content: '▸'; color: var(--green); font-size: .75rem; }
+.stack-items { display: flex; flex-direction: column; gap: .55rem; }
+.stack-item {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: .82rem; color: var(--text);
+  padding: .5rem .75rem; border-radius: 8px;
+  background: rgba(255,255,255,.025); border: 1px solid transparent;
+  transition: border-color .2s, background .2s;
+}
+.stack-item:hover { border-color: var(--line-hi); background: rgba(255,255,255,.045); }
+.stack-item small { font-family: var(--font-mono); font-size: .62rem; color: var(--muted-2); }
+
+/* ── COMO FUNCIONA ── */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; position: relative; counter-reset: step; }
+.step-card { padding: 2rem 1.85rem; }
+.step-card::before {
+  counter-increment: step; content: '0' counter(step);
+  font-family: var(--font-mono); font-size: 2.4rem; font-weight: 600;
+  background: linear-gradient(135deg, var(--green), var(--blue));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  opacity: .85; display: block; margin-bottom: 1.1rem; line-height: 1;
+}
+.step-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: .6rem; }
+.step-card p { font-size: .85rem; color: var(--muted); line-height: 1.7; }
+
+/* ── SOBRE ── */
+.sobre-inner { display: grid; grid-template-columns: 360px 1fr; gap: 4.5rem; align-items: center; max-width: 1160px; margin: 0 auto; }
+.sobre-img-wrap { position: relative; }
+.sobre-img-wrap::before {
+  content: ''; position: absolute; inset: -14px;
+  border: 1px solid var(--line-hi); border-radius: 22px;
+  mask-image: linear-gradient(135deg, black 20%, transparent 55%, black 85%);
+}
+.sobre-img-wrap::after {
+  content: ''; position: absolute; top: -14px; left: -14px; width: 44px; height: 44px;
+  border-top: 2px solid var(--green); border-left: 2px solid var(--green); border-radius: 22px 0 0 0;
+}
+.sobre-img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%;
+  border-radius: 16px; display: block; position: relative; z-index: 1;
+  filter: saturate(.95);
+  box-shadow: 0 28px 70px rgba(0,0,0,.55);
+}
+.sobre-quote {
+  font-family: var(--font-display); font-size: 1.18rem; font-weight: 400;
+  color: var(--text); line-height: 1.65; margin: 1.4rem 0 1.6rem;
+  padding-left: 1.25rem; border-left: 2px solid var(--green);
+}
+.sobre-quote em { font-style: normal; color: var(--green); }
+.sobre-text { font-size: .93rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.75rem; }
+.sobre-text p + p { margin-top: 1rem; }
+.sobre-text strong { color: var(--text); font-weight: 500; }
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 2rem; }
+.cred {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--glass); border: 1px solid var(--line); border-radius: 10px;
+  padding: .7rem .95rem; font-size: .78rem; color: var(--text);
+}
+.cred svg { flex-shrink: 0; }
+.sobre-nome { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; }
+.sobre-cargo { font-family: var(--font-mono); font-size: .7rem; color: var(--muted-2); letter-spacing: .08em; margin-top: 4px; }
+
+/* ── CONTATO ── */
+#contato { text-align: center; }
+#contato::before {
+  content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+  width: 720px; height: 420px; pointer-events: none;
+  background: radial-gradient(ellipse, rgba(0,230,140,.08) 0%, transparent 65%);
+}
+#contato .s-tag { justify-content: center; }
+#contato .s-tag::before { display: none; }
+#contato .s-sub { margin: 0 auto 3rem; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+.contact-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 880px; margin: 0 auto; }
+.contact-card {
+  padding: 1.5rem 1rem; text-align: center; text-decoration: none;
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+}
+.contact-card:hover { box-shadow: 0 0 30px rgba(0,230,140,.08); }
+.cc-ico { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(0,230,140,.1), rgba(58,160,255,.1)); border: 1px solid var(--line-hi); margin-bottom: 3px; }
+.cc-lbl { font-family: var(--font-mono); font-size: .6rem; color: var(--muted-2); letter-spacing: .14em; text-transform: uppercase; }
+.cc-val { font-size: .82rem; color: var(--text); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  background: rgba(4,7,12,.6);
+}
+.ft-left { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.ft-links { display: flex; gap: 1.4rem; }
+.ft-links a { font-size: .78rem; color: var(--muted-2); text-decoration: none; transition: color .2s; }
+.ft-links a:hover { color: var(--text); }
+.ft-copy { font-family: var(--font-mono); font-size: .68rem; color: var(--muted-2); }
+
+/* ── FLOATING WA ── */
+.float-wa {
+  position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 300;
+  width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; animation: wapulse 2.8s infinite; transition: transform .2s;
+}
+.float-wa:hover { transform: scale(1.1); }
+.float-wa svg { width: 29px; height: 29px; fill: white; }
+@keyframes wapulse {
+  0%,100% { box-shadow: 0 4px 22px rgba(37,211,102,.35); }
+  50%      { box-shadow: 0 4px 38px rgba(37,211,102,.6); }
+}
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .float-wa, .pulse-dot::after, .cursor { animation: none; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1040px) {
+  .prod-grid { grid-template-columns: 1fr; }
+  .stack-grid { grid-template-columns: 1fr 1fr; }
+  .serv-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .contact-row { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .hero-beam { display: none; }
+  .steps { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .sobre-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .sobre-img-wrap { max-width: 300px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+  nav .nav-links { display: none; }
+  .hero-proof { grid-template-columns: 1fr 1fr; gap: 1.3rem; width: 100%; }
+  .stack-grid { grid-template-columns: 1fr; }
+  .prod-feats { grid-template-columns: 1fr; }
+  .contact-row { grid-template-columns: 1fr; }
+  .cred-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-mark">&lt;/&gt;</div>
+    <div class="nav-logo-text">
+      Castilho
+      <span>Soluções Digitais</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5532999669302?text=Olá!%20Quero%20saber%20mais%20sobre%20as%20soluções%20da%20Castilho%20Digital." class="nav-cta">Falar com Augusto</a>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="hero-beam"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="pulse-dot"></span>2 produtos SaaS em produção</div>
+      <h1>Eu não vendo promessa.<br>Vendo <span class="grad-text">software rodando</span><br>em produção.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Sou <strong>Augusto Castilho</strong> — desenvolvedor full-stack e fundador do <strong>Invexa</strong> e do <strong>Invexa Frete</strong>. Construo sites, automações e sistemas de gestão com a mesma engenharia que mantém meus próprios produtos no ar todos os dias.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5532999669302?text=Olá!%20Quero%20saber%20mais%20sobre%20as%20soluções%20da%20Castilho%20Digital." class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#03130C"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.552 4.107 1.518 5.836L.057 23.5l5.806-1.522A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.443.903.92-3.358-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="#produtos" class="btn-ghost">Ver produtos em produção ↓</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item"><strong><em>2</em></strong><span>produtos SaaS<br>em produção</span></div>
+        <div class="proof-item"><strong>10<em>+</em></strong><span>anos em gestão<br>e financeiro</span></div>
+        <div class="proof-item"><strong>MBA</strong><span>Engenharia<br>de Software</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="terminal">
+        <div class="term-bar">
+          <div class="term-dot" style="background:#FF5F57"></div>
+          <div class="term-dot" style="background:#FEBC2E"></div>
+          <div class="term-dot" style="background:#28C840"></div>
+          <div class="term-title">augusto@castilho-digital ~ produção</div>
+        </div>
+        <div class="term-body">
+          <span class="tl"><span class="p">$</span> castilho <span class="k">--status</span></span>
+          <span class="tl"><span class="c"># verificando produtos em produção...</span></span>
+          <span class="tl"><span class="ok">✓</span> invexa-app.com.br <span class="c">·</span> <span class="s">ERP SaaS multiempresa</span> <span class="ok">[online]</span></span>
+          <span class="tl"><span class="ok">✓</span> invexa-frete <span class="c">·</span> <span class="s">gestão de transportadoras</span> <span class="ok">[online]</span></span>
+          <span class="tl"><span class="c"># stack principal</span></span>
+          <span class="tl"><span class="k">backend:</span> <span class="s">PHP 8.3 · Laravel · MySQL · Redis</span></span>
+          <span class="tl"><span class="k">frontend:</span> <span class="s">Vue.js · Tailwind · Vite</span></span>
+          <span class="tl"><span class="k">infra:</span> <span class="s">Nginx · Linux · monitoramento 24/7</span></span>
+          <span class="tl"><span class="p">$</span> <span class="cursor"></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUTOS EM PRODUÇÃO -->
+<section id="produtos">
+  <div class="inner">
+    <div class="s-tag reveal">portfólio · produtos próprios</div>
+    <h2 class="reveal">Software que eu construí<br>e que <span class="grad-text">está no ar agora</span></h2>
+    <p class="s-sub reveal">Antes de propor uma solução para o seu negócio, eu mostro as que já mantenho em produção — com clientes reais, pagamentos reais e a responsabilidade de manter tudo funcionando todos os dias.</p>
+
+    <div class="prod-grid">
+
+      <div class="glass-card prod-card invexa reveal">
+        <div class="prod-head">
+          <div class="prod-name">Invexa<span>ERP SaaS multiempresa</span></div>
+          <div class="badge-live"><span class="pulse-dot"></span>Em produção</div>
+        </div>
+        <p class="prod-desc">Sistema de gestão completo para pequenas e médias empresas brasileiras: vendas, estoque e financeiro em um único painel — sem a complexidade nem o preço de um ERP corporativo.</p>
+        <div class="prod-feats">
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#00E68C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Vendas, estoque e financeiro integrados</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#00E68C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Pagamentos Pix (Asaas) e assinaturas (Stripe)</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#00E68C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Multiempresa com dados isolados por cliente</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#00E68C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Autenticação 2FA e conformidade com LGPD</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#00E68C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Audit log de todas as operações</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#00E68C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Monitoramento em produção 24/7</div>
+        </div>
+        <div class="prod-stack">
+          <span class="chip">Laravel</span><span class="chip">PHP 8.3</span><span class="chip">MySQL</span><span class="chip">Redis</span><span class="chip">Vue.js</span><span class="chip">Tailwind</span><span class="chip">Stripe</span><span class="chip">Asaas</span>
+        </div>
+        <div class="prod-links">
+          <a href="https://invexa-app.com.br" target="_blank" rel="noopener" class="prod-link">Acessar o Invexa
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/5532999669302?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Invexa." class="prod-link" style="color:var(--muted)">Tirar dúvidas →</a>
+        </div>
+      </div>
+
+      <div class="glass-card prod-card frete reveal">
+        <div class="prod-head">
+          <div class="prod-name">Invexa Frete<span>Gestão para transportadoras</span></div>
+          <div class="badge-live"><span class="pulse-dot"></span>Em produção</div>
+        </div>
+        <p class="prod-desc">Plataforma de gestão de viagens para transportadoras: controle financeiro de cada viagem, acerto de motoristas e documentação fiscal — do embarque ao relatório final.</p>
+        <div class="prod-feats">
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#3AA0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Gestão completa de viagens e frota</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#3AA0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Controle financeiro por viagem</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#3AA0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Acerto de motoristas automatizado</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#3AA0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Documentos fiscais organizados</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#3AA0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Relatórios gerenciais em PDF</div>
+          <div class="feat"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="#3AA0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Visão consolidada da operação</div>
+        </div>
+        <div class="prod-stack">
+          <span class="chip">Laravel</span><span class="chip">PHP 8.3</span><span class="chip">MySQL</span><span class="chip">Blade</span><span class="chip">Tailwind</span><span class="chip">PDF Reports</span>
+        </div>
+        <div class="prod-links">
+          <a href="https://wa.me/5532999669302?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Invexa%20Frete." class="prod-link blue">Conhecer o Invexa Frete
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="inner">
+    <div class="s-tag reveal">como posso ajudar o seu negócio</div>
+    <h2 class="reveal">Três frentes, <span class="grad-text">um único parceiro</span><br>técnico e de negócio</h2>
+    <p class="s-sub reveal">Você não precisa de uma agência para o site, um freelancer para automações e outro fornecedor para gestão. Eu cuido das três frentes — com a mesma engenharia dos meus produtos.</p>
+    <div class="serv-grid">
+
+      <div class="glass-card serv-card reveal">
+        <div class="serv-num"><b>01</b> / PRESENÇA DIGITAL</div>
+        <div class="serv-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="#00E68C" stroke-width="1.6"/><path d="M3 9H21" stroke="#00E68C" stroke-width="1.6"/><circle cx="6" cy="6.5" r=".9" fill="#00E68C"/><circle cx="9" cy="6.5" r=".9" fill="#3AA0FF"/><path d="M9 21H15" stroke="#3AA0FF" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Landing Pages</h3>
+        <p>Páginas exclusivas para advogados, médicos, engenheiros e profissionais autônomos que querem ser encontrados e lembrados online. Design próprio, código otimizado, sem templates genéricos.</p>
+        <a href="https://wa.me/5532999669302?text=Olá!%20Tenho%20interesse%20em%20uma%20landing%20page%20profissional." class="serv-link">Pedir orçamento
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="glass-card serv-card reveal">
+        <div class="serv-num"><b>02</b> / PROCESSOS</div>
+        <div class="serv-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 8V4M12 20v-4M8 12H4M20 12h-4" stroke="#3AA0FF" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="#00E68C" stroke-width="1.6"/><circle cx="12" cy="12" r="8" stroke="#3AA0FF" stroke-width="1.2" stroke-dasharray="3 4"/></svg>
+        </div>
+        <h3>Automações</h3>
+        <p>Tarefas repetitivas que tomam seu tempo todo dia — respostas, planilhas, agendamentos, integrações entre sistemas — resolvidas uma vez e funcionando sozinhas a partir daí.</p>
+        <a href="https://wa.me/5532999669302?text=Olá!%20Quero%20entender%20como%20automatizar%20processos%20no%20meu%20negócio." class="serv-link">Conversar sobre seu processo
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="glass-card serv-card reveal">
+        <div class="serv-num"><b>03</b> / GESTÃO</div>
+        <div class="serv-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3" stroke="#00E68C" stroke-width="1.6" stroke-linecap="round"/><circle cx="16" cy="8" r="1.4" fill="#3AA0FF"/></svg>
+        </div>
+        <h3>Sistemas de Gestão</h3>
+        <p>Sua empresa configurada no Invexa — ou um sistema sob medida quando o seu processo pede algo específico. Vendas, estoque, financeiro e clientes fora da planilha, com dados seguros.</p>
+        <a href="#produtos" class="serv-link">Conhecer o Invexa
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="inner">
+    <div class="s-tag reveal">stack &amp; ferramentas</div>
+    <h2 class="reveal">A tecnologia por trás<br>de <span class="grad-text">tudo que eu entrego</span></h2>
+    <p class="s-sub reveal">A mesma stack que mantém o Invexa e o Invexa Frete em produção é a que eu uso nos projetos dos meus clientes. Nada experimental: ferramentas maduras, seguras e de mercado.</p>
+    <div class="stack-grid">
+
+      <div class="glass-card stack-col reveal">
+        <h3>Backend</h3>
+        <div class="stack-items">
+          <div class="stack-item">PHP <small>8.3</small></div>
+          <div class="stack-item">Laravel <small>framework</small></div>
+          <div class="stack-item">MySQL <small>8.0</small></div>
+          <div class="stack-item">Redis <small>cache/filas</small></div>
+        </div>
+      </div>
+
+      <div class="glass-card stack-col reveal">
+        <h3>Frontend</h3>
+        <div class="stack-items">
+          <div class="stack-item">Vue.js <small>SPA</small></div>
+          <div class="stack-item">Tailwind CSS <small>UI</small></div>
+          <div class="stack-item">Vite <small>build</small></div>
+          <div class="stack-item">JavaScript <small>ES6+</small></div>
+        </div>
+      </div>
+
+      <div class="glass-card stack-col reveal">
+        <h3>Infra &amp; DevOps</h3>
+        <div class="stack-items">
+          <div class="stack-item">Nginx <small>web server</small></div>
+          <div class="stack-item">Linux <small>servidores</small></div>
+          <div class="stack-item">Git / GitHub <small>versionamento</small></div>
+          <div class="stack-item">Monitoramento <small>24/7</small></div>
+        </div>
+      </div>
+
+      <div class="glass-card stack-col reveal">
+        <h3>Integrações</h3>
+        <div class="stack-items">
+          <div class="stack-item">Stripe <small>assinaturas</small></div>
+          <div class="stack-item">Asaas <small>Pix</small></div>
+          <div class="stack-item">APIs REST <small>integrações</small></div>
+          <div class="stack-item">WhatsApp <small>automação</small></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMO FUNCIONA -->
+<section id="como">
+  <div class="inner">
+    <div class="s-tag reveal">como funciona</div>
+    <h2 class="reveal">Da conversa à entrega,<br><span class="grad-text">sem complicação</span></h2>
+    <p class="s-sub reveal">O processo muda um pouco conforme a solução, mas o espírito é sempre o mesmo: simples, transparente e com você acompanhando cada etapa.</p>
+    <div class="steps">
+      <div class="glass-card step-card reveal">
+        <h3>Conversa inicial</h3>
+        <p>Entendo seu negócio, sua necessidade e qual das três frentes faz mais sentido pra você agora. Sem formulário complicado — uma conversa direta no WhatsApp.</p>
+      </div>
+      <div class="glass-card step-card reveal">
+        <h3>Desenvolvimento</h3>
+        <p>Construo a solução com base no que conversamos, com a mesma engenharia dos meus produtos. Você acompanha o progresso e aprova antes de qualquer entrega final.</p>
+      </div>
+      <div class="glass-card step-card reveal">
+        <h3>Entrega e suporte</h3>
+        <p>Site no ar, automação rodando ou sua empresa configurada no Invexa — e eu continuo por perto para o que precisar. Suporte direto comigo, sem fila nem robô.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-inner">
+    <div class="sobre-img-wrap reveal">
+      <img
+        src="/fotoperfil-atual.jpg"
+        alt="Augusto Corrêa Castilho — Desenvolvedor Full-Stack e Fundador da Castilho Soluções Digitais"
+        class="sobre-img"
+      />
+    </div>
+    <div>
+      <div class="s-tag reveal">quem está por trás</div>
+      <h2 class="reveal">Olá, sou <span class="grad-text">Augusto Castilho</span></h2>
+      <div class="sobre-quote reveal">"Desenvolvo software porque <em>entendo o problema antes do código</em>. Passei mais de 10 anos dentro da operação de empresas — sei onde os dados quebram, onde os relatórios falham e onde os sistemas deixam de atender quem realmente os usa."</div>
+      <div class="sobre-text reveal">
+        <p>Foram mais de 10 anos em faturamento, rotinas financeiras e operação de sistemas ERP em empresas industriais. Foi esse olhar de dentro do negócio que me levou a programar — e programar me levou a construir o <strong>Invexa</strong> e o <strong>Invexa Frete</strong>, dois produtos SaaS que hoje mantenho em produção.</p>
+        <p>Sou <strong>Bacharel em Administração</strong> com <strong>MBA em Engenharia de Software</strong> — uma combinação pouco comum: visão de negócio com execução técnica de ponta a ponta. Quando você contrata a Castilho Digital, fala direto com quem projeta, desenvolve e sustenta a solução.</p>
+      </div>
+      <div class="cred-grid reveal">
+        <div class="cred"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L15 5V6H1V5L8 1Z" fill="#00E68C" opacity=".8"/><path d="M3 7V12M8 7V12M13 7V12M1 14H15" stroke="#00E68C" stroke-width="1.4" stroke-linecap="round"/></svg>MBA em Engenharia de Software</div>
+        <div class="cred"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#3AA0FF" stroke-width="1.4"/><path d="M5 7L7 9L11 5.5" stroke="#3AA0FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Bacharel em Administração</div>
+        <div class="cred"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 4L2 8L5 12M11 4L14 8L11 12" stroke="#00E68C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 3L7 13" stroke="#3AA0FF" stroke-width="1.4" stroke-linecap="round"/></svg>Desenvolvedor Full-Stack</div>
+        <div class="cred"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 13V8M6 13V5M10 13V7M14 13V3" stroke="#3AA0FF" stroke-width="1.4" stroke-linecap="round"/></svg>10+ anos em gestão e financeiro</div>
+      </div>
+      <div class="reveal">
+        <div class="sobre-nome">Augusto Corrêa Castilho</div>
+        <div class="sobre-cargo">FUNDADOR · CASTILHO SOLUÇÕES DIGITAIS · CRIADOR DO INVEXA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="inner">
+    <div class="s-tag reveal">// vamos começar</div>
+    <h2 class="reveal">Qual frente faz sentido<br><span class="grad-text">para o seu momento agora?</span></h2>
+    <p class="s-sub reveal">Me conta o que você precisa e eu te digo, com sinceridade, qual caminho faz mais sentido. O orçamento é gratuito e sem compromisso.</p>
+    <div class="cta-btns reveal">
+      <a href="https://wa.me/5532999669302?text=Olá!%20Quero%20saber%20mais%20sobre%20as%20soluções%20da%20Castilho%20Digital." class="btn-primary" style="padding:1rem 2rem;font-size:1rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#03130C"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.552 4.107 1.518 5.836L.057 23.5l5.806-1.522A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.443.903.92-3.358-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a href="mailto:ac.castilho87@gmail.com" class="btn-ghost" style="padding:1rem 2rem;font-size:1rem;">Enviar e-mail</a>
+    </div>
+    <div class="contact-row reveal">
+      <a href="https://wa.me/5532999669302" class="glass-card contact-card">
+        <div class="cc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="#00E68C"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.552 4.107 1.518 5.836L.057 23.5l5.806-1.522A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.443.903.92-3.358-.234-.374A9.818 9.818 0 1112 21.818z"/></svg></div>
+        <div class="cc-lbl">WhatsApp</div>
+        <div class="cc-val">(32) 99966-9302</div>
+      </a>
+      <a href="mailto:ac.castilho87@gmail.com" class="glass-card contact-card">
+        <div class="cc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#3AA0FF" stroke-width="1.6"/><path d="M2 7L12 13L22 7" stroke="#3AA0FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cc-lbl">E-mail</div>
+        <div class="cc-val">ac.castilho87@gmail.com</div>
+      </a>
+      <a href="https://instagram.com/castilho_digital" target="_blank" rel="noopener" class="glass-card contact-card">
+        <div class="cc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#00E68C" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#00E68C" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.2" fill="#00E68C"/></svg></div>
+        <div class="cc-lbl">Instagram</div>
+        <div class="cc-val">@castilho_digital</div>
+      </a>
+      <a href="https://linkedin.com/in/augusto-castilho87" target="_blank" rel="noopener" class="glass-card contact-card">
+        <div class="cc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="#3AA0FF"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.57 0 5.42 3.01 5.42 6.92V23h-4.52v-7.13c0-1.7-.03-3.89-2.37-3.89-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"/></svg></div>
+        <div class="cc-lbl">LinkedIn</div>
+        <div class="cc-val">augusto-castilho87</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="ft-left">
+    <div class="nav-mark">&lt;/&gt;</div>
+    <div class="nav-logo-text">
+      Castilho
+      <span>Soluções Digitais</span>
+    </div>
+  </a>
+  <div class="ft-links">
+    <a href="#produtos">Produtos</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#stack">Stack</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <div class="ft-copy">© 2026 Castilho Soluções Digitais</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/5532999669302?text=Olá!%20Quero%20saber%20mais%20sobre%20as%20soluções%20da%20Castilho%20Digital." class="float-wa" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.552 4.107 1.518 5.836L.057 23.5l5.806-1.522A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.443.903.92-3.358-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
+
+<script>
+// Estado do nav ao rolar
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
