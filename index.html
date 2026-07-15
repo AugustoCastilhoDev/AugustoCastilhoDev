@@ -46,15 +46,6 @@ body {
 ::selection { background: rgba(0,230,140,.25); }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
 
-/* fundo global: grade técnica sutil */
-body::before {
-  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(148,190,233,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148,190,233,.035) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
-}
 main, nav, footer { position: relative; z-index: 1; }
 
 /* ── NAV ── */
@@ -101,11 +92,6 @@ nav.scrolled {
 .orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(10px); }
 .orb-1 { width: 640px; height: 640px; background: radial-gradient(circle, var(--green-glow) 0%, transparent 68%); top: -200px; right: -140px; }
 .orb-2 { width: 520px; height: 520px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 68%); bottom: -220px; left: -120px; }
-.hero-beam {
-  position: absolute; top: 0; left: 50%; width: 1px; height: 100%;
-  background: linear-gradient(180deg, transparent, rgba(0,230,140,.25) 40%, transparent 80%);
-  pointer-events: none;
-}
 .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.08fr .92fr; gap: 4rem; align-items: center; max-width: 1240px; margin: 0 auto; width: 100%; }
 
 .hero-badge {
@@ -427,7 +413,6 @@ footer {
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
-  .hero-beam { display: none; }
   .steps { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   .sobre-inner { grid-template-columns: 1fr; gap: 3rem; }
   .sobre-img-wrap { max-width: 300px; margin: 0 auto; }
@@ -469,7 +454,6 @@ footer {
 <section id="hero">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-  <div class="hero-beam"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><span class="pulse-dot"></span>2 produtos SaaS em produção</div>
