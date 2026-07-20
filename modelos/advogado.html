@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafael Antunes — Advocacia Civil e Empresarial</title>
+<meta name="description" content="Atuação consultiva e contenciosa em Direito Civil, Empresarial e Trabalhista. Atendimento direto, análise criteriosa e comunicação clara em cada etapa do seu caso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --navy:      #0E1B2C;   /* azul-marinho profundo */
+  --navy-2:    #14243A;   /* variação para camadas */
+  --paper:     #F8F6F1;   /* off-white quente */
+  --paper-alt: #EFECE4;   /* seção secundária */
+  --ink:       #1A2432;   /* texto escuro sobre claro */
+  --muted:     #75706A;   /* apoio sobre claro */
+  --gold:      #B08D57;   /* dourado discreto */
+  --gold-soft: #C9AE85;
+  --line:      #E0DCD2;   /* linhas sobre claro */
+  --line-dark: rgba(248,246,241,.14); /* linhas sobre navy */
+  --font-display: 'EB Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body); font-weight: 300;
+  color: var(--ink); background: var(--paper);
+  overflow-x: hidden;
+}
+::selection { background: var(--navy); color: var(--paper); }
+:focus-visible { outline: 1.5px solid var(--gold); outline-offset: 3px; }
+img { max-width: 100%; display: block; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.35rem 6%;
+  transition: background .35s, box-shadow .35s, padding .35s;
+}
+nav.scrolled {
+  background: rgba(14,27,44,.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--line-dark);
+  padding: .95rem 6%;
+}
+.nav-logo { text-decoration: none; line-height: 1; }
+.nav-logo strong {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 1.25rem; color: var(--paper); letter-spacing: .1em; text-transform: uppercase;
+}
+.nav-logo span {
+  display: block; font-size: .56rem; color: var(--gold-soft);
+  letter-spacing: .4em; text-transform: uppercase; margin-top: 5px;
+}
+.nav-links { display: flex; gap: 2.3rem; list-style: none; align-items: center; }
+.nav-links a {
+  color: rgba(248,246,241,.72); text-decoration: none;
+  font-size: .73rem; letter-spacing: .18em; text-transform: uppercase;
+  padding-bottom: 3px; border-bottom: 1px solid transparent;
+  transition: color .25s, border-color .25s;
+}
+.nav-links a:hover { color: var(--paper); border-bottom-color: var(--gold); }
+.nav-cta {
+  border: 1px solid var(--gold) !important; padding: .66rem 1.5rem !important;
+  color: var(--gold-soft) !important;
+  transition: background .25s, color .25s !important;
+}
+.nav-cta:hover { background: var(--gold); color: var(--navy) !important; border-bottom-color: var(--gold) !important; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh; background: var(--navy); color: var(--paper);
+  display: grid; grid-template-columns: 1.05fr .95fr; align-items: stretch;
+  position: relative; overflow: hidden;
+}
+#hero::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: 52%; width: 1px;
+  background: linear-gradient(180deg, transparent, var(--line-dark) 30%, var(--line-dark) 70%, transparent);
+}
+.hero-copy {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 9rem 4.5rem 5rem 6%; position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  font-size: .68rem; letter-spacing: .42em; text-transform: uppercase;
+  color: var(--gold-soft); margin-bottom: 2.25rem;
+  display: flex; align-items: center; gap: 16px;
+}
+.hero-eyebrow::before { content: ''; width: 42px; height: 1px; background: var(--gold); }
+h1 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.5rem, 4.3vw, 3.9rem);
+  line-height: 1.16; color: var(--paper); letter-spacing: .005em;
+  margin-bottom: 2rem;
+}
+h1 em { font-style: italic; color: var(--gold-soft); }
+.hero-sub {
+  font-size: .97rem; line-height: 1.95; color: rgba(248,246,241,.66);
+  max-width: 460px; margin-bottom: 3rem;
+}
+.hero-actions { display: flex; align-items: center; gap: 2.25rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+.btn-gold {
+  display: inline-block; background: var(--gold); color: var(--navy);
+  text-decoration: none; font-size: .73rem; font-weight: 500;
+  letter-spacing: .22em; text-transform: uppercase;
+  padding: 1.05rem 2.4rem; transition: opacity .25s, transform .25s;
+}
+.btn-gold:hover { opacity: .88; transform: translateY(-2px); }
+.link-line {
+  color: var(--paper); text-decoration: none; font-size: .73rem;
+  letter-spacing: .22em; text-transform: uppercase;
+  padding-bottom: 5px; border-bottom: 1px solid var(--gold);
+  transition: opacity .25s;
+}
+.link-line:hover { opacity: .6; }
+.hero-creds { display: flex; gap: 2.75rem; flex-wrap: wrap; border-top: 1px solid var(--line-dark); padding-top: 1.75rem; }
+.hero-cred small { display: block; font-size: .62rem; letter-spacing: .26em; text-transform: uppercase; color: rgba(248,246,241,.4); margin-bottom: .45rem; }
+.hero-cred span { font-family: var(--font-display); font-size: 1.05rem; color: var(--paper); letter-spacing: .04em; }
+
+.hero-media { position: relative; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(18%) contrast(1.02); }
+.hero-media::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--navy) 0%, transparent 22%);
+}
+
+/* ── ESTRUTURA GERAL ── */
+section { padding: 7.5rem 6%; }
+.inner { max-width: 1180px; margin: 0 auto; }
+.s-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 4rem; flex-wrap: wrap; }
+.s-tag {
+  font-size: .66rem; letter-spacing: .4em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.4rem;
+  display: flex; align-items: center; gap: 14px;
+}
+.s-tag::before { content: ''; width: 34px; height: 1px; background: var(--gold); }
+h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.9rem, 3vw, 2.65rem); line-height: 1.22; color: var(--ink);
+}
+h2 em { font-style: italic; color: var(--gold); }
+.s-sub { font-size: .92rem; color: var(--muted); line-height: 1.9; max-width: 400px; }
+
+/* ── ÁREAS DE ATUAÇÃO ── */
+.areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.area {
+  background: #FFFFFF; border: 1px solid var(--line);
+  padding: 2.5rem 2.1rem; position: relative;
+  transition: transform .3s, box-shadow .3s;
+}
+.area::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 44px; height: 2px;
+  background: var(--gold); transition: width .35s;
+}
+.area:hover { transform: translateY(-5px); box-shadow: 0 22px 50px rgba(14,27,44,.09); }
+.area:hover::before { width: 84px; }
+.area small {
+  font-family: var(--font-display); font-size: .9rem; font-style: italic;
+  color: var(--gold); display: block; margin-bottom: 1.1rem;
+}
+.area h3 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 1.35rem; color: var(--ink); margin-bottom: .8rem; letter-spacing: .01em;
+}
+.area p { font-size: .86rem; line-height: 1.85; color: var(--muted); }
+
+/* ── SOBRE ── */
+#sobre { background: var(--paper-alt); }
+.sobre-grid { display: grid; grid-template-columns: 400px 1fr; gap: 5.5rem; align-items: center; max-width: 1180px; margin: 0 auto; }
+.sobre-media { position: relative; }
+.sobre-media::after {
+  content: ''; position: absolute; top: 1.5rem; left: 1.5rem; right: -1.5rem; bottom: -1.5rem;
+  border: 1px solid var(--gold-soft); opacity: .55; z-index: 0; pointer-events: none;
+}
+.sobre-media img { position: relative; z-index: 1; aspect-ratio: 4/5; object-fit: cover; object-position: center top; filter: grayscale(12%); }
+.sobre-quote {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 1.4rem; line-height: 1.55; color: var(--navy);
+  margin: 2rem 0 1.75rem; padding-left: 1.5rem; border-left: 2px solid var(--gold);
+}
+.sobre-text { font-size: .93rem; line-height: 2; color: var(--ink); max-width: 540px; }
+.sobre-text p + p { margin-top: 1.1rem; }
+.sobre-creds { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: 2.25rem; max-width: 540px; }
+.cred-item {
+  background: #FFFFFF; border: 1px solid var(--line);
+  padding: .95rem 1.2rem; font-size: .78rem; color: var(--ink);
+  display: flex; align-items: center; gap: 10px;
+}
+.cred-item::before { content: ''; width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+.sobre-sign { margin-top: 2.5rem; }
+.sobre-sign strong { font-family: var(--font-display); font-weight: 500; font-size: 1.2rem; color: var(--navy); letter-spacing: .05em; display: block; }
+.sobre-sign span { font-size: .66rem; color: var(--muted); letter-spacing: .24em; text-transform: uppercase; display: block; margin-top: 6px; }
+
+/* ── ATENDIMENTO / PROCESSO ── */
+.proc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.75rem; }
+.proc-item { border-top: 1px solid var(--navy); padding-top: 1.75rem; position: relative; }
+.proc-item::before {
+  content: ''; position: absolute; top: -1px; left: 0; width: 40px; height: 1px; background: var(--gold);
+}
+.proc-item small { font-family: var(--font-display); font-style: italic; font-size: .95rem; color: var(--gold); }
+.proc-item h3 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 1.3rem; color: var(--ink); margin: .8rem 0 .8rem;
+}
+.proc-item p { font-size: .87rem; line-height: 1.9; color: var(--muted); }
+
+/* ── COMPROMISSOS (diferenciais) ── */
+#compromissos { background: var(--navy); color: var(--paper); }
+#compromissos .s-tag { color: var(--gold-soft); }
+#compromissos h2 { color: var(--paper); }
+#compromissos h2 em { color: var(--gold-soft); }
+.comp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--line-dark); border-left: 1px solid var(--line-dark); }
+.comp {
+  padding: 2.75rem 2.5rem;
+  border-right: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark);
+}
+.comp h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.3rem; color: var(--paper); margin-bottom: .9rem;
+  display: flex; align-items: baseline; gap: 14px;
+}
+.comp h3 span { font-style: italic; color: var(--gold-soft); font-size: 1rem; }
+.comp p { font-size: .88rem; line-height: 1.9; color: rgba(248,246,241,.6); }
+
+/* ── FAQ ── */
+.faq-list { max-width: 780px; margin: 0 auto; border-top: 1px solid var(--line); }
+.faq { border-bottom: 1px solid var(--line); }
+.faq summary {
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: 1.75rem .25rem;
+  font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; color: var(--ink);
+  transition: color .25s;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--gold); }
+.faq summary::after {
+  content: '+'; font-family: var(--font-body); font-weight: 300;
+  font-size: 1.4rem; color: var(--gold); transition: transform .3s;
+}
+.faq[open] summary::after { transform: rotate(45deg); }
+.faq-body { padding: 0 .25rem 1.75rem; font-size: .89rem; line-height: 1.95; color: var(--muted); max-width: 640px; }
+
+/* ── CONTATO ── */
+#contato { background: var(--paper-alt); }
+.contact-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 5rem; align-items: start; max-width: 1180px; margin: 0 auto; }
+.contact-text { font-size: .94rem; line-height: 2; color: var(--ink); max-width: 460px; margin: 1.75rem 0 3rem; }
+.btn-navy {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--navy); color: var(--paper);
+  text-decoration: none; font-size: .73rem; font-weight: 400;
+  letter-spacing: .22em; text-transform: uppercase;
+  padding: 1.05rem 2.3rem; transition: opacity .25s, transform .25s;
+}
+.btn-navy:hover { opacity: .9; transform: translateY(-2px); }
+.btn-navy svg { width: 17px; height: 17px; fill: var(--gold-soft); }
+.contact-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); background: transparent; }
+.contact-item {
+  display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
+  padding: 1.55rem .25rem; border-bottom: 1px solid var(--line);
+  text-decoration: none; transition: padding-left .3s;
+}
+.contact-item:hover { padding-left: .8rem; }
+.contact-item small { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+.contact-item span { font-size: .92rem; color: var(--ink); }
+.contact-note { margin-top: 2rem; font-size: .78rem; line-height: 1.8; color: var(--muted); font-style: italic; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  padding: 2.5rem 6% 2rem; text-align: center;
+}
+.ft-brand { font-family: var(--font-display); font-size: 1.05rem; color: var(--paper); letter-spacing: .16em; text-transform: uppercase; }
+.ft-brand span { display: block; font-family: var(--font-body); font-size: .58rem; color: var(--gold-soft); letter-spacing: .4em; margin-top: 6px; }
+.ft-links { display: flex; gap: 1.75rem; justify-content: center; margin: 1.75rem 0; }
+.ft-links a { font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(248,246,241,.5); text-decoration: none; transition: color .25s; }
+.ft-links a:hover { color: var(--paper); }
+.ft-copy { font-size: .68rem; color: rgba(248,246,241,.32); letter-spacing: .04em; line-height: 1.8; }
+
+/* ── FLOATING WA ── */
+.float-wa {
+  position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 300;
+  width: 54px; height: 54px; background: var(--navy); border: 1px solid rgba(176,141,87,.5);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: transform .25s;
+  box-shadow: 0 10px 30px rgba(14,27,44,.3);
+}
+.float-wa:hover { transform: scale(1.08); }
+.float-wa svg { width: 26px; height: 26px; fill: var(--gold-soft); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1080px) {
+  .areas { grid-template-columns: 1fr 1fr; }
+  .sobre-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+  .sobre-media { max-width: 400px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+}
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; }
+  #hero::before { display: none; }
+  .hero-copy { padding: 8.5rem 6% 3.5rem; }
+  .hero-media { min-height: 46vh; order: -1; display: none; }
+  .proc-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+  .comp-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  nav .nav-links { display: none; }
+  .areas { grid-template-columns: 1fr; }
+  .hero-creds { gap: 1.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <strong>Rafael Antunes</strong>
+    <span>Advocacia</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#areas">Atuação</a></li>
+    <li><a href="#sobre">O advogado</a></li>
+    <li><a href="#atendimento">Atendimento</a></li>
+    <li><a href="#faq">Dúvidas</a></li>
+    <li><a href="#contato" class="nav-cta">Agendar consulta</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero" style="padding:0;">
+  <div class="hero-copy">
+    <div class="hero-eyebrow">Advocacia Civil · Empresarial · Trabalhista</div>
+    <h1>Seu caso merece análise <em>criteriosa</em> — e comunicação clara do início ao fim.</h1>
+    <p class="hero-sub">Atuação consultiva e contenciosa com atendimento direto, sem intermediários. Você entende cada etapa do processo, os cenários possíveis e as decisões a tomar — em linguagem acessível.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5500000000000?text=Olá,%20Dr.%20Rafael.%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-gold">Agendar consulta</a>
+      <a href="#areas" class="link-line">Áreas de atuação</a>
+    </div>
+    <div class="hero-creds">
+      <div class="hero-cred"><small>Registro</small><span>OAB/UF 000.000</span></div>
+      <div class="hero-cred"><small>Experiência</small><span>15 anos de atuação</span></div>
+      <div class="hero-cred"><small>Atendimento</small><span>Presencial e on-line</span></div>
+    </div>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80&auto=format&fit=crop" alt="Dr. Rafael Antunes, advogado" loading="eager">
+  </div>
+</section>
+
+<!-- ÁREAS DE ATUAÇÃO -->
+<section id="areas">
+  <div class="inner">
+    <div class="s-head">
+      <div>
+        <div class="s-tag reveal">Áreas de atuação</div>
+        <h2 class="reveal">Atuação <em>focada</em>,<br>não generalista</h2>
+      </div>
+      <p class="s-sub reveal">Concentro a prática em três áreas — profundidade técnica em vez de volume. Se o seu caso pede outro campo do direito, indico com transparência um colega de confiança.</p>
+    </div>
+    <div class="areas">
+      <div class="area reveal">
+        <small>I.</small>
+        <h3>Direito Civil</h3>
+        <p>Contratos, responsabilidade civil, cobranças, direito imobiliário e questões patrimoniais — na prevenção e no litígio.</p>
+      </div>
+      <div class="area reveal">
+        <small>II.</small>
+        <h3>Direito Empresarial</h3>
+        <p>Assessoria consultiva para empresas: contratos societários, recuperação de crédito, conformidade e apoio jurídico à tomada de decisão.</p>
+      </div>
+      <div class="area reveal">
+        <small>III.</small>
+        <h3>Direito Trabalhista</h3>
+        <p>Defesa de empregadores e empregados em demandas trabalhistas, acordos, auditoria preventiva de rotinas e passivo trabalhista.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-media reveal">
+      <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=900&q=80&auto=format&fit=crop" alt="Dr. Rafael Antunes em seu escritório">
+    </div>
+    <div>
+      <div class="s-tag reveal">O advogado</div>
+      <h2 class="reveal">Advocacia é técnica.<br>Confiança se constrói com <em>clareza</em></h2>
+      <p class="sobre-quote reveal">"O cliente não precisa de juridiquês. Precisa saber onde está, quais caminhos existem e o que eu recomendo — e por quê."</p>
+      <div class="sobre-text reveal">
+        <p>Sou advogado há 15 anos, com atuação concentrada em Direito Civil, Empresarial e Trabalhista. Atendo pessoalmente cada cliente, do primeiro contato à conclusão do caso — sem repassar seu processo a terceiros.</p>
+        <p>Meu compromisso é com a análise honesta: quando o caso é viável, você saberá a estratégia; quando não é, você ouvirá isso com franqueza, antes de gastar tempo e recursos.</p>
+      </div>
+      <div class="sobre-creds reveal">
+        <div class="cred-item">Graduação em Direito — Instituição de Ensino</div>
+        <div class="cred-item">Pós-graduação em Direito Empresarial</div>
+        <div class="cred-item">Membro da Comissão de Direito Civil — OAB/UF</div>
+        <div class="cred-item">Atuação em todo o território nacional</div>
+      </div>
+      <div class="sobre-sign reveal">
+        <strong>Rafael Antunes</strong>
+        <span>OAB/UF 000.000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATENDIMENTO -->
+<section id="atendimento">
+  <div class="inner">
+    <div class="s-head">
+      <div>
+        <div class="s-tag reveal">Como funciona</div>
+        <h2 class="reveal">Um atendimento <em>estruturado</em>,<br>do primeiro contato à conclusão</h2>
+      </div>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-item reveal">
+        <small>Etapa I</small>
+        <h3>Consulta inicial</h3>
+        <p>Você apresenta o caso, presencialmente ou por videoconferência. Analiso documentos, faço as perguntas necessárias e explico os cenários possíveis.</p>
+      </div>
+      <div class="proc-item reveal">
+        <small>Etapa II</small>
+        <h3>Parecer e estratégia</h3>
+        <p>Você recebe uma avaliação honesta da viabilidade, a estratégia recomendada e uma proposta de honorários clara — sem surpresas ao longo do caminho.</p>
+      </div>
+      <div class="proc-item reveal">
+        <small>Etapa III</small>
+        <h3>Acompanhamento</h3>
+        <p>Com a atuação iniciada, você recebe atualizações a cada movimentação relevante e tem canal direto comigo para dúvidas durante todo o processo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPROMISSOS -->
+<section id="compromissos">
+  <div class="inner">
+    <div class="s-head">
+      <div>
+        <div class="s-tag reveal">Compromissos</div>
+        <h2 class="reveal">O que você pode <em>esperar</em><br>desta advocacia</h2>
+      </div>
+    </div>
+    <div class="comp-grid reveal">
+      <div class="comp">
+        <h3><span>01.</span>Atendimento pessoal</h3>
+        <p>Seu caso é conduzido por mim, do início ao fim. Nada de descobrir no meio do processo que quem responde é outra pessoa.</p>
+      </div>
+      <div class="comp">
+        <h3><span>02.</span>Transparência nos honorários</h3>
+        <p>Proposta formal antes de qualquer contratação, com escopo e valores definidos. Você decide com todas as informações à mesa.</p>
+      </div>
+      <div class="comp">
+        <h3><span>03.</span>Comunicação em linguagem clara</h3>
+        <p>Pareceres e atualizações escritos para serem compreendidos — o rigor técnico fica nas petições, não na nossa conversa.</p>
+      </div>
+      <div class="comp">
+        <h3><span>04.</span>Sigilo absoluto</h3>
+        <p>Confidencialidade integral sobre documentos, conversas e estratégia, conforme o Código de Ética da advocacia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="inner">
+    <div class="s-head" style="justify-content:center;text-align:center;">
+      <div style="margin:0 auto;">
+        <div class="s-tag reveal" style="justify-content:center;">Dúvidas frequentes</div>
+        <h2 class="reveal">Antes da sua <em>consulta</em></h2>
+      </div>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq">
+        <summary>A primeira conversa tem custo?</summary>
+        <div class="faq-body">A consulta inicial é um serviço jurídico com análise técnica do seu caso e orientação — e possui honorários, conforme as diretrizes da OAB. O valor é informado antes do agendamento e, em caso de contratação, pode ser abatido dos honorários do serviço.</div>
+      </details>
+      <details class="faq">
+        <summary>O atendimento pode ser totalmente on-line?</summary>
+        <div class="faq-body">Sim. Consultas por videoconferência, documentos assinados digitalmente e acompanhamento processual eletrônico permitem atendimento completo a clientes de qualquer cidade do país.</div>
+      </details>
+      <details class="faq">
+        <summary>Como são definidos os honorários?</summary>
+        <div class="faq-body">Após a consulta inicial, você recebe uma proposta formal com o escopo do trabalho e os valores — fixos ou por etapa, conforme o caso. Nenhuma cobrança acontece sem sua aprovação prévia e por escrito.</div>
+      </details>
+      <details class="faq">
+        <summary>Quanto tempo leva um processo?</summary>
+        <div class="faq-body">Depende da complexidade, da comarca e das possibilidades de acordo. Na consulta, apresento uma estimativa realista para o seu cenário específico — sem promessas que a advocacia séria não pode fazer.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contact-grid">
+    <div>
+      <div class="s-tag reveal">Agendar consulta</div>
+      <h2 class="reveal">Vamos analisar<br>o seu <em>caso?</em></h2>
+      <p class="contact-text reveal">Descreva brevemente sua situação pelo WhatsApp ou e-mail. Retorno em até um dia útil com os horários disponíveis para a consulta — presencial ou por videoconferência.</p>
+      <a href="https://wa.me/5500000000000?text=Olá,%20Dr.%20Rafael.%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-navy reveal">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.552 4.107 1.518 5.836L.057 23.5l5.806-1.522A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.443.903.92-3.358-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+      <p class="contact-note reveal">As informações compartilhadas são tratadas com sigilo profissional desde o primeiro contato.</p>
+    </div>
+    <div class="contact-list reveal">
+      <a href="https://wa.me/5500000000000" class="contact-item">
+        <small>WhatsApp</small>
+        <span>(00) 00000-0000</span>
+      </a>
+      <a href="mailto:contato@rafaelantunes.adv.br" class="contact-item">
+        <small>E-mail</small>
+        <span>contato@rafaelantunes.adv.br</span>
+      </a>
+      <div class="contact-item">
+        <small>Escritório</small>
+        <span>Av. Exemplo, 100 · Sala 45 — Sua Cidade, UF</span>
+      </div>
+      <div class="contact-item">
+        <small>Horário</small>
+        <span>Segunda a sexta · 9h às 18h</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-brand">Rafael Antunes<span>Advocacia</span></div>
+  <div class="ft-links">
+    <a href="#areas">Atuação</a>
+    <a href="#sobre">O advogado</a>
+    <a href="#atendimento">Atendimento</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <div class="ft-copy">© 2026 Rafael Antunes Advocacia · OAB/UF 000.000<br>Conteúdo meramente informativo, em conformidade com o Provimento 205/2021 da OAB. Não constitui promessa de resultado.</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/5500000000000?text=Olá,%20Dr.%20Rafael.%20Gostaria%20de%20agendar%20uma%20consulta." class="float-wa" aria-label="Agendar consulta pelo WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.552 4.107 1.518 5.836L.057 23.5l5.806-1.522A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.443.903.92-3.358-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
+
+<script>
+// Estado do nav ao rolar
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
