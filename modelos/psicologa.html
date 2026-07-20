@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ana Clara Ribeiro — Psicóloga Clínica | Terapia On-line e Presencial</title>
+<meta name="description" content="Psicoterapia para adultos com base na Terapia Cognitivo-Comportamental. Um espaço de escuta sem julgamento, on-line ou presencial. Agende uma conversa inicial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --cream:     #FAF7F1;   /* fundo principal, creme quente */
+  --cream-alt: #F2EDE3;   /* seções secundárias */
+  --ink:       #33302B;   /* grafite morno para títulos */
+  --body:      #57534C;   /* texto corrente */
+  --muted:     #8F897F;   /* apoios */
+  --sage:      #7D9082;   /* verde-sálvia, cor de acento */
+  --sage-deep: #5C7263;   /* sálvia escuro para hovers/fundos */
+  --sage-soft: #E4EAE4;   /* sálvia claríssimo para superfícies */
+  --line:      #E3DDD1;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body); font-weight: 300;
+  color: var(--body); background: var(--cream);
+  overflow-x: hidden;
+}
+::selection { background: var(--sage); color: var(--cream); }
+:focus-visible { outline: 1.5px solid var(--sage-deep); outline-offset: 3px; }
+img { max-width: 100%; display: block; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.35rem 6%;
+  transition: background .35s, box-shadow .35s, padding .35s;
+}
+nav.scrolled {
+  background: rgba(250,247,241,.93);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--line);
+  padding: .95rem 6%;
+}
+.nav-logo { text-decoration: none; line-height: 1; }
+.nav-logo strong {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.2rem; color: var(--ink); letter-spacing: .04em;
+}
+.nav-logo span {
+  display: block; font-size: .58rem; color: var(--sage-deep);
+  letter-spacing: .34em; text-transform: uppercase; margin-top: 5px;
+}
+.nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+.nav-links a {
+  color: var(--body); text-decoration: none;
+  font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+  padding-bottom: 3px; border-bottom: 1px solid transparent;
+  transition: color .25s, border-color .25s;
+}
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--sage); }
+.nav-cta {
+  background: var(--sage-deep); color: var(--cream) !important;
+  padding: .68rem 1.5rem !important; border-radius: 100px;
+  border-bottom: none !important;
+  transition: background .25s !important;
+}
+.nav-cta:hover { background: var(--ink); }
+
+/* ── HERO (tipográfico, centrado — sem foto) ── */
+#hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 9rem 6% 5rem; position: relative; overflow: hidden;
+}
+.blob {
+  position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; opacity: .55;
+}
+.blob-1 { width: 520px; height: 520px; background: var(--sage-soft); top: -160px; right: -120px; }
+.blob-2 { width: 460px; height: 460px; background: #EFE6D6; bottom: -180px; left: -140px; }
+.hero-arch {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -54%);
+  width: min(620px, 78vw); aspect-ratio: 1/1.18;
+  border: 1px solid var(--line); border-radius: 320px 320px 0 0;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; max-width: 760px; }
+.hero-eyebrow {
+  font-size: .68rem; letter-spacing: .4em; text-transform: uppercase;
+  color: var(--sage-deep); margin-bottom: 2.5rem;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(2.5rem, 4.8vw, 4.2rem);
+  line-height: 1.18; color: var(--ink); letter-spacing: -.01em;
+  margin-bottom: 2rem;
+}
+h1 em { font-style: italic; font-weight: 300; color: var(--sage-deep); }
+.hero-sub {
+  font-size: 1rem; line-height: 1.95; color: var(--body);
+  max-width: 540px; margin: 0 auto 3rem;
+}
+.hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 4rem; }
+.btn-sage {
+  display: inline-block; background: var(--sage-deep); color: var(--cream);
+  text-decoration: none; font-size: .74rem; font-weight: 400;
+  letter-spacing: .2em; text-transform: uppercase;
+  padding: 1.05rem 2.5rem; border-radius: 100px;
+  transition: background .25s, transform .25s;
+}
+.btn-sage:hover { background: var(--ink); transform: translateY(-2px); }
+.link-line {
+  color: var(--ink); text-decoration: none; font-size: .74rem;
+  letter-spacing: .2em; text-transform: uppercase;
+  padding-bottom: 5px; border-bottom: 1px solid var(--sage);
+  transition: opacity .25s;
+}
+.link-line:hover { opacity: .55; }
+.hero-meta {
+  display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+  font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+.hero-meta span { display: flex; align-items: center; gap: 9px; }
+.hero-meta span::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--sage); }
+
+/* ── ESTRUTURA GERAL ── */
+section { padding: 7.5rem 6%; }
+.inner { max-width: 1140px; margin: 0 auto; }
+.s-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 4rem; flex-wrap: wrap; }
+.s-tag {
+  font-size: .66rem; letter-spacing: .38em; text-transform: uppercase;
+  color: var(--sage-deep); margin-bottom: 1.4rem;
+  display: flex; align-items: center; gap: 14px;
+}
+.s-tag::before { content: ''; width: 34px; height: 1px; background: var(--sage); }
+h2 {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1.24; color: var(--ink);
+}
+h2 em { font-style: italic; color: var(--sage-deep); }
+.s-sub { font-size: .93rem; color: var(--muted); line-height: 1.95; max-width: 400px; }
+
+/* ── QUANDO BUSCAR (temas) ── */
+#temas { background: var(--cream-alt); }
+.temas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.tema {
+  background: var(--cream); border: 1px solid var(--line); border-radius: 18px;
+  padding: 2rem 1.9rem;
+  transition: transform .3s, border-color .3s;
+}
+.tema:hover { transform: translateY(-4px); border-color: var(--sage); }
+.tema h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.15rem; color: var(--ink); margin-bottom: .6rem;
+}
+.tema p { font-size: .84rem; line-height: 1.8; color: var(--muted); }
+.temas-note {
+  margin-top: 2.5rem; text-align: center; font-size: .88rem; color: var(--muted);
+  font-style: italic; font-family: var(--font-display);
+}
+
+/* ── SOBRE (foto em arco) ── */
+.sobre-grid { display: grid; grid-template-columns: 400px 1fr; gap: 5.5rem; align-items: center; max-width: 1140px; margin: 0 auto; }
+.sobre-media { position: relative; padding-top: 1rem; }
+.sobre-media img {
+  aspect-ratio: 4/5.1; object-fit: cover; object-position: center top;
+  border-radius: 260px 260px 0 0;
+}
+.sobre-media::before {
+  content: ''; position: absolute; inset: -1rem 1.25rem auto;
+  height: 100%; border: 1px solid var(--sage); opacity: .5;
+  border-radius: 260px 260px 0 0; pointer-events: none;
+}
+.sobre-quote {
+  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-size: 1.4rem; line-height: 1.6; color: var(--sage-deep);
+  margin: 2rem 0 1.75rem;
+}
+.sobre-text { font-size: .94rem; line-height: 2.05; color: var(--body); max-width: 540px; }
+.sobre-text p + p { margin-top: 1.1rem; }
+.sobre-creds { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.25rem; }
+.cred-pill {
+  background: var(--sage-soft); color: var(--sage-deep);
+  border-radius: 100px; padding: .55rem 1.25rem; font-size: .76rem; letter-spacing: .02em;
+}
+.sobre-sign { margin-top: 2.5rem; }
+.sobre-sign strong { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; color: var(--ink); display: block; }
+.sobre-sign span { font-size: .66rem; color: var(--muted); letter-spacing: .24em; text-transform: uppercase; display: block; margin-top: 6px; }
+
+/* ── COMO FUNCIONA ── */
+#processo { background: var(--sage-deep); color: var(--cream); border-radius: 0; }
+#processo .s-tag { color: rgba(250,247,241,.65); }
+#processo .s-tag::before { background: rgba(250,247,241,.5); }
+#processo h2 { color: var(--cream); }
+#processo h2 em { color: #C9D6C9; }
+#processo .s-sub { color: rgba(250,247,241,.6); }
+.proc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+.proc-item {
+  border-top: 1px solid rgba(250,247,241,.25); padding-top: 1.75rem;
+}
+.proc-item small {
+  font-family: var(--font-display); font-style: italic;
+  font-size: .95rem; color: #C9D6C9;
+}
+.proc-item h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.3rem; color: var(--cream); margin: .8rem 0 .8rem;
+}
+.proc-item p { font-size: .87rem; line-height: 1.95; color: rgba(250,247,241,.68); }
+
+/* ── PRINCÍPIOS ── */
+.princ-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.princ {
+  border: 1px solid var(--line); border-radius: 18px; padding: 2.4rem 2.2rem;
+  background: #FFFFFF;
+  transition: border-color .3s, transform .3s;
+}
+.princ:hover { border-color: var(--sage); transform: translateY(-4px); }
+.princ h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.2rem; color: var(--ink); margin-bottom: .8rem;
+  display: flex; align-items: baseline; gap: 12px;
+}
+.princ h3 em { font-style: italic; color: var(--sage-deep); font-size: .95rem; }
+.princ p { font-size: .87rem; line-height: 1.9; color: var(--muted); }
+
+/* ── FAQ ── */
+#faq { background: var(--cream-alt); }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq {
+  background: var(--cream); border: 1px solid var(--line); border-radius: 16px;
+  margin-bottom: .9rem; overflow: hidden;
+}
+.faq summary {
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  font-family: var(--font-display); font-weight: 400; font-size: 1.08rem; color: var(--ink);
+  transition: color .25s;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--sage-deep); }
+.faq summary::after {
+  content: '+'; font-family: var(--font-body); font-weight: 300;
+  font-size: 1.4rem; color: var(--sage); transition: transform .3s; flex-shrink: 0;
+}
+.faq[open] summary::after { transform: rotate(45deg); }
+.faq-body { padding: 0 1.75rem 1.6rem; font-size: .88rem; line-height: 1.95; color: var(--body); max-width: 640px; }
+
+/* ── CONTATO ── */
+#contato { text-align: center; position: relative; overflow: hidden; }
+#contato .blob-1 { top: auto; bottom: -220px; right: -160px; }
+#contato .s-tag { justify-content: center; }
+#contato .s-tag::before { display: none; }
+.contact-text { font-size: .95rem; line-height: 2; color: var(--body); max-width: 480px; margin: 1.5rem auto 3rem; position: relative; z-index: 1; }
+.contact-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  max-width: 780px; margin: 3.5rem auto 0; position: relative; z-index: 1;
+}
+.contact-card {
+  background: #FFFFFF; border: 1px solid var(--line); border-radius: 18px;
+  padding: 1.6rem 1.2rem; text-decoration: none;
+  transition: border-color .3s, transform .3s;
+}
+.contact-card:hover { border-color: var(--sage); transform: translateY(-4px); }
+.contact-card small { display: block; font-size: .6rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+.contact-card span { font-size: .88rem; color: var(--ink); }
+.contact-note { margin-top: 2.75rem; font-size: .78rem; line-height: 1.9; color: var(--muted); font-style: italic; position: relative; z-index: 1; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2.5rem 6%; text-align: center;
+}
+.ft-brand { font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); }
+.ft-brand span { display: block; font-family: var(--font-body); font-size: .58rem; color: var(--sage-deep); letter-spacing: .36em; text-transform: uppercase; margin-top: 6px; }
+.ft-links { display: flex; gap: 1.75rem; justify-content: center; margin: 1.6rem 0; }
+.ft-links a { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .25s; }
+.ft-links a:hover { color: var(--ink); }
+.ft-copy { font-size: .7rem; color: var(--muted); letter-spacing: .03em; line-height: 1.9; }
+
+/* ── FLOATING WA ── */
+.float-wa {
+  position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 300;
+  width: 54px; height: 54px; background: var(--sage-deep);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: transform .25s, background .25s;
+  box-shadow: 0 10px 28px rgba(92,114,99,.35);
+}
+.float-wa:hover { transform: scale(1.08); background: var(--ink); }
+.float-wa svg { width: 26px; height: 26px; fill: var(--cream); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1080px) {
+  .temas-grid { grid-template-columns: 1fr 1fr; }
+  .sobre-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+  .sobre-media { max-width: 340px; margin: 0 auto; }
+  .princ-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .proc-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+  .contact-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  nav .nav-links { display: none; }
+  .temas-grid { grid-template-columns: 1fr; }
+  .hero-meta { gap: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <strong>Ana Clara Ribeiro</strong>
+    <span>Psicóloga Clínica</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#temas">Quando buscar</a></li>
+    <li><a href="#sobre">Sobre mim</a></li>
+    <li><a href="#processo">Como funciona</a></li>
+    <li><a href="#faq">Dúvidas</a></li>
+    <li><a href="#contato" class="nav-cta">Agendar conversa</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="hero-arch"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal in">Psicóloga Clínica · CRP 00/00000</div>
+    <h1 class="reveal in">Um espaço de escuta<br>para você se <em>reencontrar</em></h1>
+    <p class="hero-sub reveal in">Psicoterapia para adultos, on-line e presencial, com base na Terapia Cognitivo-Comportamental. Sem julgamento, no seu tempo — com método, ética e acolhimento.</p>
+    <div class="hero-actions reveal in">
+      <a href="https://wa.me/5500000000000?text=Olá,%20Ana.%20Gostaria%20de%20agendar%20uma%20conversa%20inicial." class="btn-sage">Agendar conversa inicial</a>
+      <a href="#temas" class="link-line">Quando buscar terapia</a>
+    </div>
+    <div class="hero-meta reveal in">
+      <span>Atendimento on-line</span>
+      <span>Consultório acolhedor</span>
+      <span>Sigilo absoluto</span>
+    </div>
+  </div>
+</section>
+
+<!-- QUANDO BUSCAR -->
+<section id="temas">
+  <div class="inner">
+    <div class="s-head">
+      <div>
+        <div class="s-tag reveal">Quando buscar terapia</div>
+        <h2 class="reveal">Alguns caminhos que trazem<br>as pessoas <em>até aqui</em></h2>
+      </div>
+      <p class="s-sub reveal">Não existe um motivo "suficiente" para começar. Existe o seu momento — e cada processo é conduzido a partir dele.</p>
+    </div>
+    <div class="temas-grid">
+      <div class="tema reveal">
+        <h3>Ansiedade</h3>
+        <p>Preocupação constante, tensão no corpo, noites mal dormidas ou aquela sensação de estar sempre no limite.</p>
+      </div>
+      <div class="tema reveal">
+        <h3>Esgotamento e trabalho</h3>
+        <p>Burnout, dificuldade em desconectar, cobrança excessiva e a sensação de que produzir nunca é suficiente.</p>
+      </div>
+      <div class="tema reveal">
+        <h3>Relacionamentos</h3>
+        <p>Padrões que se repetem, dificuldade em impor limites, conflitos familiares ou o fim de um ciclo importante.</p>
+      </div>
+      <div class="tema reveal">
+        <h3>Luto e perdas</h3>
+        <p>A elaboração de perdas — de pessoas, de fases, de projetos — no ritmo que cada história pede.</p>
+      </div>
+      <div class="tema reveal">
+        <h3>Autoestima</h3>
+        <p>Autocrítica constante, comparação, dificuldade em reconhecer o próprio valor e tomar decisões com segurança.</p>
+      </div>
+      <div class="tema reveal">
+        <h3>Transições de vida</h3>
+        <p>Mudanças de carreira, cidade, maternidade/paternidade ou qualquer travessia que peça um novo olhar sobre si.</p>
+      </div>
+    </div>
+    <p class="temas-note reveal">Se o que você sente não está nesta lista, tudo bem — a conversa inicial existe justamente para isso.</p>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-media reveal">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&q=80&auto=format&fit=crop" alt="Ana Clara Ribeiro, psicóloga clínica">
+    </div>
+    <div>
+      <div class="s-tag reveal">Sobre mim</div>
+      <h2 class="reveal">Terapia com método —<br>e com <em>humanidade</em></h2>
+      <p class="sobre-quote reveal">"Meu papel não é dar respostas prontas. É caminhar com você até que as suas próprias respostas façam sentido."</p>
+      <div class="sobre-text reveal">
+        <p>Sou psicóloga clínica, com atuação em psicoterapia para adultos na abordagem da Terapia Cognitivo-Comportamental (TCC) — uma linha com ampla base científica, focada em compreender como pensamentos, emoções e comportamentos se conectam no seu dia a dia.</p>
+        <p>Atendo on-line e presencialmente, sempre em um espaço de escuta sem julgamento. Cada processo é único: o ritmo, os objetivos e os temas são construídos com você, sessão a sessão.</p>
+      </div>
+      <div class="sobre-creds reveal">
+        <span class="cred-pill">CRP 00/00000</span>
+        <span class="cred-pill">Especialização em TCC</span>
+        <span class="cred-pill">Psicoterapia de adultos</span>
+        <span class="cred-pill">Atendimento on-line e presencial</span>
+      </div>
+      <div class="sobre-sign reveal">
+        <strong>Ana Clara Ribeiro</strong>
+        <span>Psicóloga Clínica · CRP 00/00000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="processo">
+  <div class="inner">
+    <div class="s-head">
+      <div>
+        <div class="s-tag reveal">Como funciona</div>
+        <h2 class="reveal">Começar é mais simples<br>do que <em>parece</em></h2>
+      </div>
+      <p class="s-sub reveal">Do primeiro contato à rotina de sessões, o processo é claro — e você decide cada passo.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-item reveal">
+        <small>Passo 1</small>
+        <h3>Primeiro contato</h3>
+        <p>Você me escreve pelo WhatsApp ou e-mail. Alinhamos horários, formato (on-line ou presencial) e valores — sem compromisso.</p>
+      </div>
+      <div class="proc-item reveal">
+        <small>Passo 2</small>
+        <h3>Conversa inicial</h3>
+        <p>Na primeira sessão, você conta o que te trouxe e conhece o meu jeito de trabalhar. É o espaço para sentir se faz sentido seguirmos juntas(os).</p>
+      </div>
+      <div class="proc-item reveal">
+        <small>Passo 3</small>
+        <h3>Processo terapêutico</h3>
+        <p>Sessões semanais de 50 minutos, com objetivos construídos em conjunto e revisões periódicas do caminho percorrido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCÍPIOS -->
+<section id="principios">
+  <div class="inner">
+    <div class="s-head">
+      <div>
+        <div class="s-tag reveal">Princípios do cuidado</div>
+        <h2 class="reveal">O que sustenta<br>este <em>espaço</em></h2>
+      </div>
+    </div>
+    <div class="princ-grid">
+      <div class="princ reveal">
+        <h3><em>01.</em>Sigilo absoluto</h3>
+        <p>Tudo o que é dito em sessão permanece em sessão, conforme o Código de Ética Profissional do Psicólogo. Isso vale desde a primeira mensagem.</p>
+      </div>
+      <div class="princ reveal">
+        <h3><em>02.</em>Escuta sem julgamento</h3>
+        <p>Este é um espaço para falar do que for difícil — sem medo de rótulos. Acolhimento não é técnica: é postura.</p>
+      </div>
+      <div class="princ reveal">
+        <h3><em>03.</em>Base científica</h3>
+        <p>A TCC é uma das abordagens com maior respaldo em pesquisa. Método e afeto não se excluem — aqui, caminham juntos.</p>
+      </div>
+      <div class="princ reveal">
+        <h3><em>04.</em>Respeito ao seu tempo</h3>
+        <p>Terapia não é corrida. Os objetivos são seus, o ritmo é seu — meu compromisso é com um processo honesto, não com pressa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="inner">
+    <div class="s-head" style="justify-content:center;text-align:center;">
+      <div style="margin:0 auto;">
+        <div class="s-tag reveal" style="justify-content:center;">Dúvidas frequentes</div>
+        <h2 class="reveal">Antes de <em>começar</em></h2>
+      </div>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq">
+        <summary>A terapia on-line funciona tanto quanto a presencial?</summary>
+        <div class="faq-body">Sim. A modalidade on-line é regulamentada pelo Conselho Federal de Psicologia e as pesquisas mostram efetividade equivalente para a maioria das demandas. O que importa é o vínculo e a constância — e muitos pacientes preferem o conforto de estar em casa.</div>
+      </details>
+      <details class="faq">
+        <summary>Com que frequência são as sessões?</summary>
+        <div class="faq-body">Em geral, semanais, com 50 minutos de duração. A frequência pode ser ajustada conforme o momento do processo — sempre em acordo entre nós.</div>
+      </details>
+      <details class="faq">
+        <summary>Quanto custa e como funciona o pagamento?</summary>
+        <div class="faq-body">Os valores são informados no primeiro contato, junto com as formas de pagamento e a política de remarcação. Emito recibo para reembolso em planos de saúde que oferecem essa cobertura.</div>
+      </details>
+      <details class="faq">
+        <summary>Nunca fiz terapia. Como sei se é para mim?</summary>
+        <div class="faq-body">A conversa inicial existe exatamente para isso: você conhece o processo, tira dúvidas e sente se há conexão. Não é preciso estar "no fundo do poço" para começar — cuidar da saúde mental também é prevenção.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="blob blob-1"></div>
+  <div class="inner">
+    <div class="s-tag reveal">Agendar conversa</div>
+    <h2 class="reveal">O primeiro passo pode ser<br>uma <em>mensagem simples</em></h2>
+    <p class="contact-text reveal">Me escreva contando, se quiser, um pouco do que você está vivendo — ou apenas diga que gostaria de agendar. Respondo pessoalmente, em até um dia útil.</p>
+    <a href="https://wa.me/5500000000000?text=Olá,%20Ana.%20Gostaria%20de%20agendar%20uma%20conversa%20inicial." class="btn-sage reveal" style="position:relative;z-index:1;">Enviar mensagem no WhatsApp</a>
+    <div class="contact-cards reveal">
+      <a href="https://wa.me/5500000000000" class="contact-card">
+        <small>WhatsApp</small>
+        <span>(00) 00000-0000</span>
+      </a>
+      <a href="mailto:contato@anaclararibeiro.psc.br" class="contact-card">
+        <small>E-mail</small>
+        <span>contato@anaclararibeiro.psc.br</span>
+      </a>
+      <div class="contact-card">
+        <small>Consultório</small>
+        <span>Rua Exemplo, 100 · Sala 8 — Sua Cidade, UF</span>
+      </div>
+    </div>
+    <p class="contact-note reveal">Se você está em sofrimento intenso ou em crise, procure ajuda imediata: CVV — ligue 188 (24h, gratuito) ou acesse cvv.org.br.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-brand">Ana Clara Ribeiro<span>Psicóloga Clínica</span></div>
+  <div class="ft-links">
+    <a href="#temas">Quando buscar</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#processo">Como funciona</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <div class="ft-copy">© 2026 Ana Clara Ribeiro · Psicóloga Clínica · CRP 00/00000<br>Conteúdo informativo. Este site não substitui atendimento psicológico e segue o Código de Ética Profissional do Psicólogo.</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/5500000000000?text=Olá,%20Ana.%20Gostaria%20de%20agendar%20uma%20conversa%20inicial." class="float-wa" aria-label="Agendar conversa pelo WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.552 4.107 1.518 5.836L.057 23.5l5.806-1.522A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.443.903.92-3.358-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
+
+<script>
+// Estado do nav ao rolar
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
