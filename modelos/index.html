@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelos de Landing Page por Profissão — Castilho Soluções Digitais</title>
+<meta name="description" content="Conheça modelos de landing page premium desenvolvidos por nicho: arquitetura, advocacia, psicologia e odontologia. Cada profissão com identidade própria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:        #04070C;
+  --line:      rgba(148,190,233,.10);
+  --line-hi:   rgba(148,190,233,.22);
+  --green:     #00E68C;
+  --blue:      #3AA0FF;
+  --ice:       #EAF4FF;
+  --text:      #E9F1F9;
+  --muted:     #8CA3B8;
+  --muted-2:   #5E7488;
+  --glass:     rgba(255,255,255,.032);
+  --glass-hi:  rgba(255,255,255,.055);
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+::selection { background: rgba(0,230,140,.25); }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+
+/* aurora de fundo, igual ao site principal */
+.bg-aurora {
+  position: fixed; inset: -25%; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(36% 28% at 78% 10%, rgba(0,230,140,.075), transparent 70%),
+    radial-gradient(42% 34% at 10% 78%, rgba(58,160,255,.09), transparent 70%),
+    radial-gradient(30% 26% at 52% 50%, rgba(58,160,255,.05), transparent 70%);
+  filter: blur(46px);
+  animation: aurora 28s ease-in-out infinite alternate;
+}
+@keyframes aurora {
+  from { transform: translate3d(-2.5%, -1.5%, 0) scale(1) rotate(-1deg); }
+  to   { transform: translate3d(2.5%, 2%, 0) scale(1.08) rotate(1.5deg); }
+}
+main, nav, footer { position: relative; z-index: 1; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 6%;
+  border-bottom: 1px solid transparent;
+  transition: background .35s, border-color .35s;
+}
+nav.scrolled {
+  background: rgba(4,7,12,.72);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border-bottom-color: var(--line);
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.nav-mark {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: linear-gradient(135deg, rgba(0,230,140,.16), rgba(58,160,255,.16));
+  border: 1px solid var(--line-hi);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: .8rem; font-weight: 600; color: var(--green);
+}
+.nav-logo-text { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--text); letter-spacing: -.01em; line-height: 1; }
+.nav-logo-text span { display: block; font-family: var(--font-mono); font-size: .55rem; font-weight: 400; color: var(--green); letter-spacing: .22em; text-transform: uppercase; margin-top: 3px; }
+.nav-back {
+  font-family: var(--font-display); font-size: .82rem; font-weight: 500;
+  color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: color .2s;
+}
+.nav-back:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--font-display);
+  background: var(--green); color: #03130C; padding: .58rem 1.3rem;
+  border-radius: 8px; text-decoration: none; font-size: .85rem; font-weight: 600;
+  transition: box-shadow .25s, transform .15s;
+}
+.nav-cta:hover { box-shadow: 0 0 24px rgba(0,230,140,.45); transform: translateY(-1px); }
+.nav-right { display: flex; align-items: center; gap: 1.75rem; }
+
+/* ── HERO ── */
+#hero { padding: 9.5rem 6% 4rem; text-align: center; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--glass); border: 1px solid rgba(0,230,140,.3);
+  backdrop-filter: blur(8px);
+  color: var(--green); padding: .48rem 1.05rem; border-radius: 100px;
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.75rem;
+}
+.pulse-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; position: relative; }
+.pulse-dot::after {
+  content: ''; position: absolute; inset: -4px; border-radius: 50%;
+  border: 1px solid var(--green); opacity: .6; animation: ping 2.2s cubic-bezier(0,0,.2,1) infinite;
+}
+@keyframes ping { 0% { transform: scale(.5); opacity: .7; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 600; line-height: 1.14; letter-spacing: -.02em; color: var(--text);
+  margin-bottom: 1.25rem;
+}
+.grad-text {
+  background: linear-gradient(92deg, var(--green) 10%, var(--blue) 90%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub {
+  font-size: 1rem; color: var(--muted); line-height: 1.85;
+  max-width: 620px; margin: 0 auto;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+
+/* ── GRID DE MODELOS ── */
+#modelos { padding: 4rem 6% 6rem; }
+.inner { max-width: 1160px; margin: 0 auto; }
+.model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+
+.model-card {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform .3s, border-color .3s, background .3s, box-shadow .3s;
+}
+.model-card:hover {
+  transform: translateY(-5px);
+  background: var(--glass-hi);
+  border-color: var(--line-hi);
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+
+/* mini-preview estilizado com a paleta de cada modelo */
+.mp { padding: 1.9rem 1.9rem 1.6rem; display: flex; flex-direction: column; gap: 9px; position: relative; }
+.mp-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: .8rem; }
+.mp-logo { height: 8px; width: 84px; border-radius: 3px; }
+.mp-menu { display: flex; gap: 6px; }
+.mp-menu i { display: block; height: 5px; width: 26px; border-radius: 3px; opacity: .45; }
+.mp-title { height: 13px; width: 72%; border-radius: 4px; }
+.mp-title.short { width: 48%; }
+.mp-line { height: 6px; border-radius: 3px; opacity: .55; }
+.mp-cta-row { display: flex; gap: 8px; margin-top: .6rem; }
+.mp-btn { height: 26px; width: 108px; border-radius: 6px; }
+.mp-btn.pill { border-radius: 100px; }
+.mp-btn.ghost { background: transparent !important; border: 1px solid; opacity: .5; }
+.mp-tag {
+  position: absolute; top: 1.4rem; right: 1.6rem;
+  font-family: var(--font-mono); font-size: .58rem; letter-spacing: .14em; text-transform: uppercase;
+  padding: .3rem .7rem; border-radius: 100px;
+}
+
+/* paletas dos modelos */
+.mp.arq  { background: #FAF9F7; }
+.mp.arq .mp-logo, .mp.arq .mp-title { background: #161616; }
+.mp.arq .mp-menu i, .mp.arq .mp-line { background: #55524C; }
+.mp.arq .mp-btn { background: #161616; }
+.mp.arq .mp-btn.ghost { border-color: #161616; }
+.mp.arq .mp-tag { background: #F1EFEB; color: #55524C; }
+
+.mp.adv  { background: #0E1B2C; }
+.mp.adv .mp-logo, .mp.adv .mp-title { background: #F8F6F1; }
+.mp.adv .mp-menu i, .mp.adv .mp-line { background: #8FA0B5; }
+.mp.adv .mp-title.short { background: #C9AE85; }
+.mp.adv .mp-btn { background: #B08D57; }
+.mp.adv .mp-btn.ghost { border-color: #C9AE85; }
+.mp.adv .mp-tag { background: rgba(176,141,87,.18); color: #C9AE85; }
+
+.mp.psi  { background: #FAF7F1; }
+.mp.psi .mp-logo, .mp.psi .mp-title { background: #33302B; }
+.mp.psi .mp-menu i, .mp.psi .mp-line { background: #8F897F; }
+.mp.psi .mp-title.short { background: #5C7263; }
+.mp.psi .mp-btn { background: #5C7263; }
+.mp.psi .mp-btn.ghost { border-color: #5C7263; }
+.mp.psi .mp-tag { background: #E4EAE4; color: #5C7263; }
+
+.mp.den  { background: #F5F9F8; }
+.mp.den .mp-logo, .mp.den .mp-title { background: #142B2C; }
+.mp.den .mp-menu i, .mp.den .mp-line { background: #7C908E; }
+.mp.den .mp-title.short { background: #17827C; }
+.mp.den .mp-btn { background: #0E3A3B; }
+.mp.den .mp-btn.ghost { border-color: #17827C; }
+.mp.den .mp-tag { background: #D9EBE8; color: #0E3A3B; }
+
+/* corpo do card */
+.model-body { padding: 1.75rem 1.9rem 1.9rem; display: flex; flex-direction: column; flex: 1; border-top: 1px solid var(--line); }
+.model-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .8rem; }
+.model-body h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; letter-spacing: -.01em; }
+.palette { display: flex; gap: 6px; }
+.palette i { display: block; width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(255,255,255,.18); }
+.model-body p { font-size: .87rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem; flex: 1; }
+.model-links { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.model-link {
+  font-family: var(--font-display); font-size: .85rem; font-weight: 500;
+  color: var(--green); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 7px; transition: gap .2s;
+}
+.model-link:hover { gap: 11px; }
+.model-link.muted { color: var(--muted); }
+
+/* ── NOTA ── */
+.note {
+  max-width: 1160px; margin: 3rem auto 0;
+  font-family: var(--font-mono); font-size: .72rem; color: var(--muted-2);
+  line-height: 1.9; text-align: center;
+}
+
+/* ── CTA FINAL ── */
+#cta { padding: 6rem 6% 7rem; text-align: center; position: relative; }
+#cta::before {
+  content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+  width: 720px; height: 420px; pointer-events: none;
+  background: radial-gradient(ellipse, rgba(0,230,140,.08) 0%, transparent 65%);
+}
+#cta h2 {
+  font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 600; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 1rem;
+  position: relative;
+}
+#cta p { font-size: .95rem; color: var(--muted); line-height: 1.85; max-width: 540px; margin: 0 auto 2.5rem; position: relative; }
+.btn-primary {
+  font-family: var(--font-display);
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--green); color: #03130C; padding: .95rem 1.9rem;
+  border-radius: 10px; text-decoration: none; font-size: .95rem; font-weight: 600;
+  transition: box-shadow .25s, transform .2s; position: relative;
+}
+.btn-primary:hover { box-shadow: 0 0 34px rgba(0,230,140,.5); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  background: rgba(4,7,12,.6);
+}
+.ft-left { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.ft-links { display: flex; gap: 1.4rem; }
+.ft-links a { font-size: .78rem; color: var(--muted-2); text-decoration: none; transition: color .2s; }
+.ft-links a:hover { color: var(--text); }
+.ft-copy { font-family: var(--font-mono); font-size: .68rem; color: var(--muted-2); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .bg-aurora, .pulse-dot::after { animation: none; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .model-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+  .nav-back span { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-aurora" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../" class="nav-logo">
+    <div class="nav-mark">&lt;/&gt;</div>
+    <div class="nav-logo-text">
+      Castilho
+      <span>Soluções Digitais</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <a href="../" class="nav-back">← <span>Voltar ao site</span></a>
+    <a href="https://wa.me/5532999669302?text=Olá!%20Vi%20os%20modelos%20de%20landing%20page%20e%20quero%20uma%20para%20minha%20profissão." class="nav-cta">Quero a minha</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge"><span class="pulse-dot"></span>Modelos de demonstração</div>
+  <h1>Landing pages <span class="grad-text">por profissão</span>,<br>não por template</h1>
+  <p class="hero-sub">Cada profissão fala com um público diferente — e a página precisa falar a mesma língua. Explore os modelos abaixo: <strong>cores, tipografia e estrutura projetadas para cada nicho</strong>. A sua será exclusiva, construída sobre essa mesma base de estratégia.</p>
+</section>
+
+<!-- MODELOS -->
+<section id="modelos">
+  <div class="inner">
+    <div class="model-grid">
+
+      <!-- ARQUITETURA -->
+      <article class="model-card reveal">
+        <a href="arquitetura.html" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="mp arq" aria-hidden="true">
+            <span class="mp-tag">Minimalista</span>
+            <div class="mp-nav"><span class="mp-logo"></span><span class="mp-menu"><i></i><i></i><i></i></span></div>
+            <span class="mp-title"></span>
+            <span class="mp-title short"></span>
+            <span class="mp-line" style="width:88%"></span>
+            <span class="mp-line" style="width:64%"></span>
+            <div class="mp-cta-row"><span class="mp-btn"></span><span class="mp-btn ghost"></span></div>
+          </div>
+        </a>
+        <div class="model-body">
+          <div class="model-head">
+            <h2>Arquitetura &amp; Interiores</h2>
+            <div class="palette"><i style="background:#FAF9F7"></i><i style="background:#161616"></i><i style="background:#F1EFEB"></i></div>
+          </div>
+          <p>Galeria minimalista em off-white e grafite: a paleta vira moldura e as fotos dos projetos são as protagonistas. Grid de portfólio com hover, serifa editorial e linhas finas.</p>
+          <div class="model-links">
+            <a href="arquitetura.html" target="_blank" rel="noopener" class="model-link">Ver demonstração
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://wa.me/5532999669302?text=Olá!%20Sou%20arquiteto(a)%20e%20quero%20uma%20landing%20page%20como%20o%20modelo%20de%20arquitetura." class="model-link muted">Quero para mim →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ADVOCACIA -->
+      <article class="model-card reveal">
+        <a href="advogado.html" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="mp adv" aria-hidden="true">
+            <span class="mp-tag">Sóbrio</span>
+            <div class="mp-nav"><span class="mp-logo"></span><span class="mp-menu"><i></i><i></i><i></i></span></div>
+            <span class="mp-title"></span>
+            <span class="mp-title short"></span>
+            <span class="mp-line" style="width:84%"></span>
+            <span class="mp-line" style="width:58%"></span>
+            <div class="mp-cta-row"><span class="mp-btn"></span><span class="mp-btn ghost"></span></div>
+          </div>
+        </a>
+        <div class="model-body">
+          <div class="model-head">
+            <h2>Advocacia</h2>
+            <div class="palette"><i style="background:#0E1B2C"></i><i style="background:#B08D57"></i><i style="background:#F8F6F1"></i></div>
+          </div>
+          <p>Azul-marinho profundo com dourado discreto e serifa clássica. Copy sóbria e em conformidade com as normas de publicidade da OAB — credibilidade em cada detalhe.</p>
+          <div class="model-links">
+            <a href="advogado.html" target="_blank" rel="noopener" class="model-link">Ver demonstração
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://wa.me/5532999669302?text=Olá!%20Sou%20advogado(a)%20e%20quero%20uma%20landing%20page%20como%20o%20modelo%20de%20advocacia." class="model-link muted">Quero para mim →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PSICOLOGIA -->
+      <article class="model-card reveal">
+        <a href="psicologa.html" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="mp psi" aria-hidden="true">
+            <span class="mp-tag">Acolhedor</span>
+            <div class="mp-nav"><span class="mp-logo"></span><span class="mp-menu"><i></i><i></i><i></i></span></div>
+            <span class="mp-title"></span>
+            <span class="mp-title short"></span>
+            <span class="mp-line" style="width:86%"></span>
+            <span class="mp-line" style="width:60%"></span>
+            <div class="mp-cta-row"><span class="mp-btn pill"></span><span class="mp-btn pill ghost"></span></div>
+          </div>
+        </a>
+        <div class="model-body">
+          <div class="model-head">
+            <h2>Psicologia</h2>
+            <div class="palette"><i style="background:#FAF7F1"></i><i style="background:#5C7263"></i><i style="background:#33302B"></i></div>
+          </div>
+          <p>Creme quente e verde-sálvia, formas arredondadas e copy acolhedora. Sem depoimentos de pacientes — estrutura pensada dentro da ética do CFP, com CRP em destaque.</p>
+          <div class="model-links">
+            <a href="psicologa.html" target="_blank" rel="noopener" class="model-link">Ver demonstração
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://wa.me/5532999669302?text=Olá!%20Sou%20psicólogo(a)%20e%20quero%20uma%20landing%20page%20como%20o%20modelo%20de%20psicologia." class="model-link muted">Quero para mim →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ODONTOLOGIA -->
+      <article class="model-card reveal">
+        <a href="dentista.html" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="mp den" aria-hidden="true">
+            <span class="mp-tag">Clínico</span>
+            <div class="mp-nav"><span class="mp-logo"></span><span class="mp-menu"><i></i><i></i><i></i></span></div>
+            <span class="mp-title"></span>
+            <span class="mp-title short"></span>
+            <span class="mp-line" style="width:90%"></span>
+            <span class="mp-line" style="width:62%"></span>
+            <div class="mp-cta-row"><span class="mp-btn"></span><span class="mp-btn ghost"></span></div>
+          </div>
+        </a>
+        <div class="model-body">
+          <div class="model-head">
+            <h2>Odontologia</h2>
+            <div class="palette"><i style="background:#F5F9F8"></i><i style="background:#0E3A3B"></i><i style="background:#17827C"></i></div>
+          </div>
+          <p>Branco-gelo e verde-petróleo com foco em tecnologia e transparência: plano de tratamento honesto, odontologia digital e jornada do paciente passo a passo.</p>
+          <div class="model-links">
+            <a href="dentista.html" target="_blank" rel="noopener" class="model-link">Ver demonstração
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://wa.me/5532999669302?text=Olá!%20Sou%20dentista%20e%20quero%20uma%20landing%20page%20como%20o%20modelo%20de%20odontologia." class="model-link muted">Quero para mim →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="note">// Os modelos usam nomes, registros e contatos fictícios, apenas para demonstração de design e estrutura.<br>// Sua página será exclusiva: cores, textos e fotos construídos para o seu posicionamento.</p>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <h2>Sua profissão não está aqui?<br><span class="grad-text">Melhor ainda.</span></h2>
+  <p>Cada modelo nasce de uma análise do nicho: público, códigos visuais e regras de publicidade da categoria. Me conte o que você faz e eu te mostro como seria a sua.</p>
+  <a href="https://wa.me/5532999669302?text=Olá!%20Vi%20os%20modelos%20de%20landing%20page%20e%20quero%20uma%20para%20minha%20profissão." class="btn-primary">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#03130C"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.552 4.107 1.518 5.836L.057 23.5l5.806-1.522A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.443.903.92-3.358-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+    Falar com Augusto
+  </a>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../" class="ft-left">
+    <div class="nav-mark">&lt;/&gt;</div>
+    <div class="nav-logo-text">
+      Castilho
+      <span>Soluções Digitais</span>
+    </div>
+  </a>
+  <div class="ft-links">
+    <a href="../">Site principal</a>
+    <a href="../#servicos">Serviços</a>
+    <a href="../#contato">Contato</a>
+  </div>
+  <div class="ft-copy">© 2026 Castilho Soluções Digitais</div>
+</footer>
+
+<script>
+// Estado do nav ao rolar
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
